@@ -12,3 +12,26 @@ Username for 'https://github.com': <USERNAME>
 Password for 'https://USERNAME@github.com': <PASSWORD>
 -----------------------------------------------------
 
+
+-----------------------------------------------------
+wildfly deployment using maven
+----------------------------------------------------
+https://www.mkyong.com/maven/maven-deploy-web-application-to-wildfly/
+----------------------------------------------------
+
+
+---------------------------------------------------
+Add PPA provider for apt-get (includes SmartGit, etc.)
+--------------------------------------------------
+sudo add-apt-repository ppa:eugenesan/ppa
+sudo apt-get update
+---------------------------------------------------
+
+
+--------------------------------------------------
+Removing write protected files with rm command on directories
+--------------------------------------------------
+use 'rm -rf folder' where f = force and r = recursive
+-------------------------------------------------
+
+
