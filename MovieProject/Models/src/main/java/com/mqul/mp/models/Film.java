@@ -11,11 +11,12 @@ import java.util.Objects;
  *
  * film model mapping to film tbl
  */
+@Table(name = "films")
 @Entity
 public class Film{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private Integer id;
 

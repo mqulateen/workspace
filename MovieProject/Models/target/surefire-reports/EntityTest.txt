@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: EntityTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.14 sec <<< FAILURE!
-testDirectorEntity(EntityTest)  Time elapsed: 0.008 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.082 sec <<< FAILURE!
+testDirectorEntity(EntityTest)  Time elapsed: 0.005 sec  <<< ERROR!
 javax.persistence.PersistenceException: No Persistence provider for EntityManager named movie
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:85)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
@@ -36,7 +36,7 @@ javax.persistence.PersistenceException: No Persistence provider for EntityManage
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testFilmEntity(EntityTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testFilmEntity(EntityTest)  Time elapsed: 0 sec  <<< ERROR!
 javax.persistence.PersistenceException: No Persistence provider for EntityManager named movie
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:85)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
@@ -70,7 +70,7 @@ javax.persistence.PersistenceException: No Persistence provider for EntityManage
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testActorEntity(EntityTest)  Time elapsed: 0.006 sec  <<< ERROR!
+testActorEntity(EntityTest)  Time elapsed: 0.001 sec  <<< ERROR!
 javax.persistence.PersistenceException: No Persistence provider for EntityManager named movie
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:85)
 	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)

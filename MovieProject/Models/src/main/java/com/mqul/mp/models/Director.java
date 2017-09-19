@@ -8,11 +8,12 @@ import javax.persistence.*;
  *
  * director model mapping to director tbl
  */
+@Table(name = "directors")
 @Entity
 public class Director{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "director_id")
     private Integer id;
 
@@ -35,6 +36,11 @@ public class Director{
         this.directorID = directorID;
         this.firstNames = firstNames;
         this.lastName = lastName;
+    }
+
+    public Integer getId()
+    {
+        return id;
     }
 
     public String getDirectorID() {

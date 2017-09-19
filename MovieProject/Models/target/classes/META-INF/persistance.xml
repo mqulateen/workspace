@@ -1,0 +1,15 @@
+<persistence>
+    <persistence-unit name="movie" transaction-type="RESOURCE_LOCAL">
+        <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+        <!--<class>com.mqul.mp.models.Actor</class>-->
+        <properties>
+            <!--<property name="eclipselink.weaving" value="false"/>-->
+            <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />-->
+            <!--<property name="javax.persistence.jdbc.url"    value="jdbc:postgresql://localhost:5432/movie?useSSL=false" />-->
+            <!--<property name="javax.persistence.jdbc.user" value="mqul" />-->
+            <!--<property name="javax.persistence.jdbc.password" value="" />-->
+            <!--<property name="eclipselink.ddl-generation" value="create-tables" />-->
+            <!--<property name="eclipselink.ddl-generation.output-mode" value="database" />-->
+        </properties>
+    </persistence-unit>
+</persistence>

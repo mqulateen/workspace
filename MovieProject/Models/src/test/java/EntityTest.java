@@ -17,6 +17,9 @@ public class EntityTest {
 
     EntityManager entityManager = factory.createEntityManager();
 
+    //@Mock
+
+
     @Test
     public void testActorEntity()
     {

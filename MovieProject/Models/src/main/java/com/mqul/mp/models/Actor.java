@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Actor{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
     private Integer id;
 
@@ -37,6 +37,10 @@ public class Actor{
         this.firstNames = firstNames;
         this.lastName = lastName;
     }
+
+    public Integer getId(){return id;}
+
+    public void setId(Integer id){this.id = id;}
 
     public String getActorID() {
         return actorID;
