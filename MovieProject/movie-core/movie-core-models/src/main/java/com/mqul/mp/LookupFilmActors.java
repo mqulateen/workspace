@@ -16,7 +16,6 @@ import javax.persistence.Table;
 public class LookupFilmActors {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private Integer filmId;
 

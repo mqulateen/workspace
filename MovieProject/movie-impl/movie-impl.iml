@@ -24,7 +24,7 @@
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
     <orderEntry type="module" module-name="movie-core-models" />
-    <orderEntry type="module" module-name="movie-common" />
     <orderEntry type="module" module-name="movie-core-dto" />
+    <orderEntry type="module" module-name="movie-common" />
   </component>
 </module>

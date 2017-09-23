@@ -3,7 +3,7 @@ package com.mqul.mp;
 public class DirectorDTO
 {
     private Integer id;
-    private String actorID;
+    private String directorId;
     private String firstNames;
     private String lastName;
 
@@ -12,10 +12,10 @@ public class DirectorDTO
         //
     }
 
-    public DirectorDTO(Integer id, String actorID, String firstNames, String lastName)
+    public DirectorDTO(Integer id, String directorId, String firstNames, String lastName)
     {
         this.id = id;
-        this.actorID = actorID;
+        this.directorId = directorId;
         this.firstNames = firstNames;
         this.lastName = lastName;
     }
@@ -25,9 +25,9 @@ public class DirectorDTO
         return id;
     }
 
-    public String getActorID()
+    public String getDirectorId()
     {
-        return actorID;
+        return directorId;
     }
 
     public String getFirstNames()

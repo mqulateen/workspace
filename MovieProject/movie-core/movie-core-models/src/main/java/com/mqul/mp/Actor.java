@@ -14,7 +14,6 @@ import java.io.Serializable;
 public class Actor implements Serializable, TransferableObject<ActorDTO>
 {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
     private Integer id;
 

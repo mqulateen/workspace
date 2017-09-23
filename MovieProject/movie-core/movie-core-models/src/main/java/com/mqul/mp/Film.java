@@ -1,6 +1,7 @@
 package com.mqul.mp;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,7 @@ import java.util.List;
 @Entity
 public class Film implements Serializable, TransferableObject<FilmDTO>
 {
-
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private Integer id;
 
@@ -68,6 +67,7 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
 //    }
 
     //+getters
+    public Integer getId(){return id;}
     public String getFilmID(){return filmId;}
     public String getFilmName(){return filmName;}
     public String getFilmRating(){return imdbRating;}
@@ -76,6 +76,7 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     public List<Actor> getActorList(){return actors;}
     
     //+setters
+    public void setId(Integer id){this.id = id;}
     public void setFilmRatig(String imdbRating){this.imdbRating = imdbRating;}
     public void setFilmYear(String filmYear){this.filmYear = filmYear;}
     public void setDirectorList(List<Director> directors){this.directors = directors;}

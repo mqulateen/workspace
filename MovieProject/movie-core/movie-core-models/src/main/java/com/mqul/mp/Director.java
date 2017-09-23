@@ -1,7 +1,5 @@
 package com.mqul.mp;
 
-import com.mqul.mp.DirectorDTO;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,7 +14,6 @@ import java.io.Serializable;
 public class Director implements Serializable, TransferableObject<DirectorDTO>
 {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "director_id")
     private Integer id;
 
@@ -45,6 +42,8 @@ public class Director implements Serializable, TransferableObject<DirectorDTO>
     {
         return id;
     }
+
+    public void setId(Integer id){this.id = id;}
 
     public String getDirectorID() {
         return directorID;
