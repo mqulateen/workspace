@@ -1,4 +1,4 @@
-//import com.mqul.mp.models.*;
+//import com.mqul.com.mqul.mp.models.*;
 //import org.junit.Assert;
 //import org.junit.Test;
 //

@@ -4,10 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>movie-core</artifactId>
-        <groupId>com.mqul.mp</groupId>
+        <groupId>com.mqul.com</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <artifactId>movie-core-models</artifactId>
     <dependencies>
@@ -17,11 +30,11 @@
             <version>RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>com.mqul.mp</groupId>
+            <groupId>com.mqul.com</groupId>
             <artifactId>movie-core-dto</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.mqul.mp</groupId>
+            <groupId>com.mqul.com</groupId>
             <artifactId>movie-common</artifactId>
         </dependency>
         <dependency>
@@ -110,17 +123,17 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>com.mqul.mp</groupId>
+                <groupId>com.mqul.com</groupId>
                 <artifactId>movie-core-models</artifactId>
                 <version>1.0</version>
             </dependency>
             <dependency>
-                <groupId>com.mqul.mp</groupId>
+                <groupId>com.mqul.com</groupId>
                 <artifactId>movie-core-dto</artifactId>
                 <version>1.0</version>
             </dependency>
             <dependency>
-                <groupId>com.mqul.mp</groupId>
+                <groupId>com.mqul.com</groupId>
                 <artifactId>movie-common</artifactId>
                 <version>1.0</version>
             </dependency>

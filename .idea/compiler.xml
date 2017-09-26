@@ -6,35 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AppVariables" />
-        <module name="AppVariables (1)" />
-        <module name="BusinessLayer" />
-        <module name="ClassLayer" />
-        <module name="DataLayer" />
-        <module name="Models" />
-        <module name="Test" />
-        <module name="UtilityLayer" />
-        <module name="WebMovie" />
+        <module name="movie-common" />
+        <module name="movie-core-dto" />
+        <module name="movie-core-impl" />
+        <module name="movie-core-impl1" />
+        <module name="movie-core-models" />
+        <module name="movie-endpoints" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AppVariables" target="1.5" />
-      <module name="AppVariables (1)" target="1.5" />
-      <module name="BusinessLayer" target="1.8" />
-      <module name="BusinessLayer (1)" target="1.8" />
-      <module name="ClassLayer" target="1.8" />
-      <module name="ClassLayer (1)" target="1.8" />
-      <module name="DataLayer" target="1.8" />
-      <module name="DataLayer (1)" target="1.8" />
-      <module name="Models" target="1.8" />
+      <module name="movie-common" target="1.8" />
+      <module name="movie-core" target="1.5" />
+      <module name="movie-core-dto" target="1.8" />
+      <module name="movie-core-impl" target="1.8" />
+      <module name="movie-core-impl1" target="1.5" />
+      <module name="movie-core-models" target="1.8" />
+      <module name="movie-endpoints" target="1.8" />
+      <module name="movie-impl" target="1.8" />
       <module name="MovieProject" target="1.5" />
-      <module name="NovusMovieProject" target="1.5" />
-      <module name="Test" target="1.5" />
-      <module name="UtilityLayer" target="1.8" />
-      <module name="UtilityLayer (1)" target="1.8" />
-      <module name="UtilityLayer (1) (com.mqul.mp)" target="1.8" />
-      <module name="WebMovie" target="1.8" />
-      <module name="WebMovie (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

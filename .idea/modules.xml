@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NovusMovieProject/ApplicationVariables/AppVariables.iml" filepath="$PROJECT_DIR$/NovusMovieProject/ApplicationVariables/AppVariables.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MovieProject/ApplicationVariables/AppVariables (1).iml" filepath="$PROJECT_DIR$/MovieProject/ApplicationVariables/AppVariables (1).iml" />
-      <module fileurl="file://$PROJECT_DIR$/NovusMovieProject/BusinessLayer/BusinessLayer.iml" filepath="$PROJECT_DIR$/NovusMovieProject/BusinessLayer/BusinessLayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NovusMovieProject/ClassLayer/ClassLayer.iml" filepath="$PROJECT_DIR$/NovusMovieProject/ClassLayer/ClassLayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NovusMovieProject/DataLayer/DataLayer.iml" filepath="$PROJECT_DIR$/NovusMovieProject/DataLayer/DataLayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MovieProject/Models/Models.iml" filepath="$PROJECT_DIR$/MovieProject/Models/Models.iml" />
       <module fileurl="file://$PROJECT_DIR$/MovieProject/MovieProject.iml" filepath="$PROJECT_DIR$/MovieProject/MovieProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NovusMovieProject/NovusMovieProject.iml" filepath="$PROJECT_DIR$/NovusMovieProject/NovusMovieProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MovieProject/Test.iml" filepath="$PROJECT_DIR$/MovieProject/Test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MovieProject/TestLayer.iml" filepath="$PROJECT_DIR$/MovieProject/TestLayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NovusMovieProject/UtilityLayer/UtilityLayer.iml" filepath="$PROJECT_DIR$/NovusMovieProject/UtilityLayer/UtilityLayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MovieProject/UtilityLayer/UtilityLayer (1) (com.mqul.mp).iml" filepath="$PROJECT_DIR$/MovieProject/UtilityLayer/UtilityLayer (1) (com.mqul.mp).iml" />
-      <module fileurl="file://$PROJECT_DIR$/NovusMovieProject/WebMovie/WebMovie.iml" filepath="$PROJECT_DIR$/NovusMovieProject/WebMovie/WebMovie.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/workspace.iml" filepath="$PROJECT_DIR$/.idea/workspace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieProject/movie-common/movie-common.iml" filepath="$PROJECT_DIR$/MovieProject/movie-common/movie-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core.iml" filepath="$PROJECT_DIR$/MovieProject/movie-core/movie-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/movie-core-dto.iml" filepath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/movie-core-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/movie-core-impl.iml" filepath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/movie-core-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/movie-core-models.iml" filepath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/movie-core-models.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieProject/movie-endpoints/movie-endpoints.iml" filepath="$PROJECT_DIR$/MovieProject/movie-endpoints/movie-endpoints.iml" />
     </modules>
   </component>
 </project>
