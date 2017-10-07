@@ -1,0 +1,5 @@
+com/mqul/mp/Film.class
+com/mqul/mp/LookupFilmDirectors.class
+com/mqul/mp/Director.class
+com/mqul/mp/LookupFilmActors.class
+com/mqul/mp/Actor.class

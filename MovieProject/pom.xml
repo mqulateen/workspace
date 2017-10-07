@@ -12,7 +12,7 @@
     <modules>
         <module>movie-common</module>
         <module>movie-core</module>
-        <module>movie-endpoints</module>
+        <module>movie-web</module>
     </modules>
 
     <!--<properties>-->
