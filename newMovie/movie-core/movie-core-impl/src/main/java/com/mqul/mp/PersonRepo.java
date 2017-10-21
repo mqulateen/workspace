@@ -13,7 +13,7 @@ import java.util.List;
 @Transactional
 public class PersonRepo {
 
-    @PersistenceContext(unitName = "movie")
+    @PersistenceContext
     private EntityManager entityManager;
 
     public Actor findActorById(int id)

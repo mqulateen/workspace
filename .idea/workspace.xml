@@ -2,73 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75d698c7-c6d3-49a0-a7cb-1cc369db002b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mqul_mp_movie_common_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mqul_mp_movie_core_dto_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mqul_mp_movie_core_models_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_javax_persistence_2_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_1_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_11_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_11_RELEASE.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_11_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/MovieProject.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-common/movie-common.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/movie-core-dto.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/movie-core-models.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/src/main/resources/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/src/test/java/Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/test-classes/Test.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-endpoints/movie-endpoints.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/movie-impl.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/src/main/resources/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/classes/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/classes/com/mqul/mp/PersonRepo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/movie-impl-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/surefire-reports/TEST-Test.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/surefire-reports/Test.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/target/test-classes/Test.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/resources/applicationContext.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/src/main/java/com/mqul/mp/PersonRepo.java" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/java/com/mqul/mp/PersonRepo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MovieProject/movie-impl/src/test/java/Test.java" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/test/java/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-common/target/movie-common-1.0.jar" afterPath="$PROJECT_DIR$/MovieProject/movie-common/target/movie-common-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/classes/com/mqul/mp/ActorDTO.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/classes/com/mqul/mp/ActorDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/classes/com/mqul/mp/DirectorDTO.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/classes/com/mqul/mp/DirectorDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/classes/com/mqul/mp/FilmDTO.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/classes/com/mqul/mp/FilmDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/movie-core-dto-1.0.jar" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/movie-core-dto-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/Actor.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/Actor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/Director.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/Director.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/Film.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/Film.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/LookupFilmActors.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/LookupFilmActors.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/LookupFilmDirectors.class" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/classes/com/mqul/mp/LookupFilmDirectors.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/movie-core-models-1.0.jar" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/movie-core-models-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/classes/com/mqul/mp/GetController.class" afterPath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/classes/com/mqul/mp/GetController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/movie-endpoints-1.0.jar" afterPath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/movie-endpoints-1.0.jar" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_11_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_11_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-impl/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-model/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/jackson-annotations-2.4.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/jackson-core-2.4.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/jackson-databind-2.4.0.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-common/target/movie-common-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-common/target/movie-common-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/movie-core-dto-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/movie-core-dto-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-impl/target/movie-core-impl-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-impl/target/movie-core-impl-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-model/target/movie-core-model-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-model/target/movie-core-model-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0.war" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-common-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-common-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-core-dto-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-core-dto-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-core-impl-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-core-impl-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-core-model-1.0.jar" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/movie-web-1.0/WEB-INF/lib/movie-core-model-1.0.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-common/pom.xml" afterPath="$PROJECT_DIR$/MovieProject/movie-common/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-common/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/MovieProject/movie-common/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/MovieProject/movie-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/pom.xml" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/src/test/java/EntityTest.java" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/src/test/java/EntityTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/pom.xml" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-core/pom.xml" afterPath="$PROJECT_DIR$/MovieProject/movie-core/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-endpoints/pom.xml" afterPath="$PROJECT_DIR$/MovieProject/movie-endpoints/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/MovieProject/movie-endpoints/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/pom.xml" afterPath="$PROJECT_DIR$/MovieProject/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieProject/movie-web/movie-web.iml" afterPath="$PROJECT_DIR$/MovieProject/movie-web/movie-web.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-common/src/main/java/com/mqul/mp/schema/postgres-movie.sql" afterPath="$PROJECT_DIR$/newMovie/movie-common/src/main/java/com/mqul/mp/schema/postgres-movie.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-common/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/newMovie/movie-common/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-dto/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-impl/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-impl/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-impl/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-impl/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-model/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-model/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-core/movie-core-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-core/movie-core-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newMovie/movie-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/newMovie/movie-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/MovieProject/movie-endpoints/target/" />
     <ignored path="$PROJECT_DIR$/MovieProject/movie-core/target/" />
@@ -79,6 +64,7 @@
     <ignored path="$PROJECT_DIR$/MovieProject/movie-impl/target/" />
     <ignored path="$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl1/target/" />
     <ignored path="$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/target/" />
+    <ignored path="$PROJECT_DIR$/MovieProject/movie-web/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,12 +73,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="43" selection-end-column="19" />
+            <state relative-caret-position="102">
+              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MovieProject/movie-web/src/main/java/com/mqul/mp/GetController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -101,7 +97,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/movie-common/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="598">
               <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding />
             </state>
@@ -111,7 +107,7 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/test/java/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="414">
               <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -123,7 +119,7 @@
       <file leaf-file-name="postgres-movie.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/movie-common/src/main/java/com/mqul/mp/schema/postgres-movie.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
+            <state relative-caret-position="1702">
               <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
               <folding />
             </state>
@@ -133,7 +129,7 @@
       <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/resources/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="483">
               <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
               <folding />
             </state>
@@ -143,7 +139,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="230">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
@@ -153,7 +149,7 @@
       <file leaf-file-name="PersonRepo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/java/com/mqul/mp/PersonRepo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
+            <state relative-caret-position="1288">
               <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -162,30 +158,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MovieProject/movie-endpoints/src/main/java/com/mqul/mp/GetController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MovieProject/movie-endpoints/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/resources/META-INF/persistence.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="368">
               <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
@@ -241,9 +217,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="231" />
-    <option name="y" value="39" />
-    <option name="width" value="1400" />
-    <option name="height" value="924" />
+    <option name="y" value="24" />
+    <option name="width" value="1886" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -261,112 +237,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
+              <item name="workspace" type="b2602c69:ProjectViewProjectNode" />
               <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mp" type="462c0819:PsiDirectoryNode" />
-              <item name="schema" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-endpoints" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-endpoints" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-endpoints" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-endpoints" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="workspaces" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MovieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="movie-endpoints" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/newMovie/pom.xml" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -513,32 +405,31 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="231" y="39" width="1400" height="924" extended-state="0" />
-    <editor active="true" />
+    <frame x="231" y="24" width="1886" height="1416" extended-state="4" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.50285715" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298122" sideWeight="0.49714285" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.50285715" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.49714285" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18524416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -552,11 +443,78 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/notes.txt">
+    <entry file="file://$PROJECT_DIR$/MovieProject/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-common/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/test/java/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-common/src/main/java/com/mqul/mp/schema/postgres-movie.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1702">
+          <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/java/com/mqul/mp/PersonRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1288">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -564,7 +522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -572,9 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#2359#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -582,7 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -590,23 +543,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MovieProject/movie-impl/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-impl/pom.xml" />
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-common/src/main/java/com/mqul/mp/QueryBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -614,26 +558,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/src/test/java/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/src/test/java/Test.java" />
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-models/src/main/resources/applicationContext.xml" />
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-dto/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -660,7 +589,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-common/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
+        <state relative-caret-position="598">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding />
         </state>
@@ -668,7 +597,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="230">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
@@ -676,7 +605,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-common/src/main/java/com/mqul/mp/schema/postgres-movie.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
+        <state relative-caret-position="1702">
           <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
           <folding />
         </state>
@@ -684,7 +613,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/test/java/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="414">
           <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -694,7 +623,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="368">
           <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding />
         </state>
@@ -702,7 +631,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="483">
           <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
           <folding />
         </state>
@@ -710,7 +639,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MovieProject/movie-core/movie-core-impl/src/main/java/com/mqul/mp/PersonRepo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
+        <state relative-caret-position="1288">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -718,26 +647,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MovieProject/movie-endpoints/src/main/java/com/mqul/mp/GetController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-endpoints/src/main/java/com/mqul/mp/GetController.java" />
     <entry file="file://$PROJECT_DIR$/MovieProject/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="43" selection-end-column="19" />
+        <state relative-caret-position="102">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MovieProject/movie-endpoints/pom.xml">
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-endpoints/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/MovieProject/movie-web/src/main/java/com/mqul/mp/GetController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="529">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -807,7 +730,7 @@
       </state>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>9</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

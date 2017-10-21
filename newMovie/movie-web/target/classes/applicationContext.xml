@@ -12,7 +12,7 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           p:driverClassName="org.postgresql.Driver" p:url="jdbc:postgresql://localhost:5432/movie"
-          p:username="mqul" p:password="" p:initialSize="5" p:maxActive="10">
+          p:username="postgres" p:password="pass" p:initialSize="5" p:maxActive="10">
     </bean>
 
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
@@ -32,6 +32,14 @@
     </bean>
 
     <bean class="com.mqul.mp.PersonRepo" id="personRepo"/>
+
+    <!-- Look up the database in JNDI -->
+    <!--<jee:jndi-lookup jndi-name="java:jboss/datasources/ExampleDS" id="dataSource"-->
+                     <!--expected-type="javax.sql.DataSource" />-->
+
+    <!--&lt;!&ndash; Look up the container deployed EntityManager &ndash;&gt;-->
+    <!--<jee:jndi-lookup jndi-name="java:comp/env/hello/EntityManager"-->
+                     <!--id="entityManager" expected-type="javax.persistence.EntityManager" />-->
 
     <bean class="org.springframework.orm.jpa.JpaTransactionManager"
           id="transactionManager">

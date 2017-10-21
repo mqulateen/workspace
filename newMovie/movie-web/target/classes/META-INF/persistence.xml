@@ -1,9 +1,10 @@
 <persistence>
     <persistence-unit name="movie" transaction-type="RESOURCE_LOCAL">
-        <jar-file>../target/movie-core-impl-1.0.jar</jar-file>
+        <!--<jar-file>../target/movie-core-impl-1.0.jar</jar-file>-->
 
         <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
-        <!--<class>com.mqul.mp.models.Actor</class>-->
+        <class>com.mqul.mp.Actor</class>
+        <class>com.mqul.mp.Director</class>
         <properties>
             <!--<property name="eclipselink.weaving" value="false"/>-->
             <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />-->
