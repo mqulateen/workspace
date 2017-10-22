@@ -45,7 +45,7 @@ CREATE TABLE Lookup_Film_Directors(
 );
 
 --the line below makes a change to table 'film' by adding a column 'imdb_rating'
-ALTER TABLE Films ADD imdb_rating FLOAT(3,1) NOT NULL;
+ALTER TABLE Films ADD imdb_rating NUMERIC(3,1) NOT NULL;
 
 --copy in everything below AFTER you execute eveything above
 

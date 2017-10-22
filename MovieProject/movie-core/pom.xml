@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>MovieProject</artifactId>
-        <groupId>com.mqul.com</groupId>
+        <groupId>com.mqul.mp</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,7 +12,7 @@
     <artifactId>movie-core</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>movie-core-models</module>
+        <module>movie-core-model</module>
         <module>movie-core-dto</module>
         <module>movie-core-impl</module>
     </modules>

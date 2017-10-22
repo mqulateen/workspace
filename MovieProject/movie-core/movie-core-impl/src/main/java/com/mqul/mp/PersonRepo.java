@@ -7,13 +7,15 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.validation.UnexpectedTypeException;
+import java.security.InvalidParameterException;
 import java.util.List;
 
 @Repository
 @Transactional
 public class PersonRepo {
 
-    @PersistenceContext(unitName = "movie")
+    @PersistenceContext
     private EntityManager entityManager;
 
     public Actor findActorById(int id)
@@ -69,6 +71,26 @@ public class PersonRepo {
 
         Query q = entityManager.createQuery(query);
         q.setParameter("filmId", filmId);
+
+        return q.getResultList();
+    }
+
+    public List getAll(PersonType type)
+    {
+        final String table;
+        switch (type)
+        {
+            case ACTOR:
+                table = "Actor";
+                break;
+            case DIRECTOR:
+                table = "Director";
+                break;
+            default:
+                throw new InvalidParameterException(String.format("Unsupported PersonType [%s]", type.name()));
+        }
+
+        Query q = entityManager.createQuery(String.format("SELECT p FROM %s p", table));
 
         return q.getResultList();
     }
