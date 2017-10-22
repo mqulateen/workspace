@@ -1,0 +1,80 @@
+To create a symbolic link (shortcut) to a directory:
+
+[bash]
+	ln -s [path the current dir] [path to linked dir]
+[\bash]
+
+#this can be used to replace something like wildfly-final-10.1.0 with wildfly
+#so instead of doing /usr/share/wildfly-final-10 you do /usr/share/wildfly
+
+===========================================================	
+
+To define a path for an app e.g. JAVA_HOME:
+
+VIM or SUBL into /etc/environment and add this line:
+	JAVA_HOME="/usr/lib/jvm/java-9-openjdk-amd64"
+
+Now source /etc/environment to refresh
+and to test: echo $JAVA_HOME
+
+============================================================
+
+Setting up wildlfy:
+!https://stuetzpunkt.wordpress.com/2017/02/28/how-to-add-wildfly-10-as-service-in-ubuntu/
+
+Create an user for Wildfly:
+	sudo adduser --no-create-home --disabled-password --disabled-login wildfly
+
+Make a symbolic link to new folder:
+	ln -s /opt/wildfly-10.1.0-Final /opt/wildfly
+
+Change ownership of directory and symbolic link to wildfly:
+	sudo chown -R wildfly:wildfly /opt/wildfly*
+
+Now we copy the provided init-Files from Wildfly to /etc/init.d:
+	sudo cp /opt/wildfly/docs/contrib/scripts/init.d/wildfly-init-debian.sh /etc/init.d/wildfly
+
+Run update-rc.d to ensure wildfly starts on reboot:
+	sudo update-rc.d wildfly defaults
+
+Copy the wildfly.conf file to /etc/default:
+	sudo cp /opt/wildfly/docs/contrib/scripts/init.d/wildfly.conf /etc/default/wildfly
+
+	vim /etc/default/wildfly
+
+Uncomment and/or Edit the following lines:
+JAVA_HOME="/usr/lib/jvm/java-9-openjdk-amd64"
+JBOSS_HOME="/usr/share/wildfly"
+JBOSS_USER=wildfly
+JBOSS_MODE=standalone
+JBOSS_CONFIG=standalone.xml
+JBOSS_CONSOLE_LOG="/var/log/wildfly/console.log"
+
+=============================================================
+
+Enable remote debugging from wildfly to intellij
+
+vim into /usr/share/wildfly/bin/standalone.conf and uncomment: 
+	JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n"
+
+Now setup remote-debugging in intellij on port 8787
+
+=============================================================
+
+To change password of postgres:
+
+	Access postgres as root: sudo su - postgres 
+	change the password with: \password
+	To view current roles other than postgres: \du
+
+=============================================================
+
+The eclipselink jar has to be copied into wildfly:
+	location = WILDFLY_HOME/modules/system/layers/base/org/eclipse/persistence/main/
+	jar location = (build the project) /home/username/.m2/repository/org/eclipse/persistence/eclipselink/
+
+=============================================================
+
+To prevent terminal from asking for passwd everything sudo command is ran:
+	add user to - sudo visudo
+		add this line: username ALL=(ALL:ALL) NOPASSWD: ALL
