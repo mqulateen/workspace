@@ -11,37 +11,37 @@ CREATE TABLE Films(
 );
 
 CREATE TABLE Directors(
-	director_id SERIAL NOT NULL,
-	director_firstNames varchar(100),
-	director_lastName varchar(100) NOT NULL,
+	id SERIAL NOT NULL,
+	firstNames varchar(100),
+	lastName varchar(100) NOT NULL,
 	imdb_id varchar(7) NOT NULL,
-	PRIMARY KEY(director_id)
+	PRIMARY KEY(id)
 );
 
 CREATE TABLE Actors(
-	actor_id SERIAL NOT NULL,
-	actor_firstNames varchar(100),
-	actor_lastName varchar(100) NOT NULL,
+	id SERIAL NOT NULL,
+	firstNames varchar(100),
+	lastName varchar(100) NOT NULL,
 	imdb_id varchar(7) NOT NULL,
-	PRIMARY KEY(actor_id)
+	PRIMARY KEY(id)
 );
 
 CREATE TABLE Lookup_Film_Actors(   
 	film_id INT NOT NULL,
-	actor_id INT NOT NULL,
+	id INT NOT NULL,
 	FOREIGN KEY(film_id)
 	  REFERENCES Films (film_id), 
-	FOREIGN KEY(actor_id) 
-	 REFERENCES Actors (actor_id)
+	FOREIGN KEY(id)
+	 REFERENCES Actors (id)
 );
 
 CREATE TABLE Lookup_Film_Directors(  
 	film_id INT NOT NULL,
-	director_id INT NOT NULL,
+	id INT NOT NULL,
 	FOREIGN KEY(film_id)
 	  REFERENCES Films (film_id), 
-	FOREIGN KEY(director_id) 
-	 REFERENCES Directors (director_id)
+	FOREIGN KEY(id)
+	 REFERENCES Directors (id)
 );
 
 --the line below makes a change to table 'film' by adding a column 'imdb_rating'
@@ -58,12 +58,12 @@ VALUES ('Spider-Man', 2002, '0145487', 7.3),
 	   ('Batman v Superman: Dawn of Justice', 2016, '2975590', 7.0),
 	   ('Daredevil', 2003, '3322312', 8.8);
 
-INSERT into Actors (actor_firstNames, actor_lastName,imdb_id) 
+INSERT into Actors (firstNames, lastName, imdb_id)
 VALUES ('Tobey', 'Maguire', '0001497'),
        ('Henry', 'Cavill', '0147147'),
 	   ('Ben', 'Affleck', '0000255');
 
-INSERT into Directors (director_firstNames, director_lastName,imdb_id) 
+INSERT into Directors (firstNames, lastName, imdb_id)
 VALUES ('Sam', 'Raimi', '0000600'),
 	   ('Zack', 'Snyder', '0811583'),
 	   ('Mark Steven', 'Johnson', '0425756');

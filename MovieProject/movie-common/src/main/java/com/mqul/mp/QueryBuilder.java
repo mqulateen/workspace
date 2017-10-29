@@ -23,11 +23,13 @@ public class QueryBuilder {
     {
         if(first)
         {
-            sb.append(String.format(" WHERE %s = %s ", l, r));
+            sb.append(String.format(" WHERE %s = %s", l, r));
             first = false;
         }
-
-        sb.append(String.format(" AND %s = %s ", l, r));
+        else
+        {
+            sb.append(String.format(" AND %s = %s", l, r));
+        }
 
         return this;
     }

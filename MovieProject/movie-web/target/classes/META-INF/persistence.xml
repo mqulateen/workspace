@@ -5,6 +5,9 @@
         <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
         <class>com.mqul.mp.Actor</class>
         <class>com.mqul.mp.Director</class>
+        <class>com.mqul.mp.Film</class>
+        <class>com.mqul.mp.LookupFilmActors</class>
+        <class>com.mqul.mp.LookupFilmDirectors</class>
         <properties>
             <!--<property name="eclipselink.weaving" value="false"/>-->
             <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />-->

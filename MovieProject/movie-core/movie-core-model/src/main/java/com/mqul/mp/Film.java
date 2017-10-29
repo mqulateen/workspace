@@ -27,12 +27,15 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     private String filmId;
 
     @Column(name = "imdb_rating")
-    private String imdbRating;
+    private double imdbRating;
 
     @Column(name = "film_year")
-    private String filmYear;
+    private int filmYear;
 
+    @Transient
     private List<Director> directors;
+
+    @Transient
     private List<Actor> actors;
     
     public Film(){
@@ -40,8 +43,9 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
         actors = new ArrayList<Actor>();
     }
     
-    public Film(String filmID, String filmName, String imdbRating, String filmYear)
+    public Film(int id, String filmID, String filmName, double imdbRating, int filmYear)
     {
+        this.id = id;
         this.filmId = filmID;
         this.filmName = filmName;
         this.imdbRating = imdbRating;
@@ -50,14 +54,11 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
         actors = new ArrayList<Actor>();
     }
     
-    public Film(String filmID, String filmName, String imdbRating, 
-            List<Director> directors, List<Actor> actors, String filmYear){
-        this.filmId = filmID;
-        this.filmName = filmName;
-        this.imdbRating = imdbRating;
+    public Film(int id, String filmID, String filmName, double imdbRating,
+                List<Director> directors, List<Actor> actors, int filmYear){
+        this(id, filmID, filmName, imdbRating, filmYear);
         this.directors = directors;
         this.actors = actors;
-        this.filmYear = filmYear;
     }
 
     /**   ensure the name/id values exist   **/
@@ -67,18 +68,18 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
 //    }
 
     //+getters
-    public Integer getId(){return id;}
+    public int getId(){return id;}
     public String getFilmID(){return filmId;}
     public String getFilmName(){return filmName;}
-    public String getFilmRating(){return imdbRating;}
-    public String getFilmYear(){return filmYear;}
+    public double getFilmRating(){return imdbRating;}
+    public int getFilmYear(){return filmYear;}
     public List<Director> getDirectorList(){return directors;}
     public List<Actor> getActorList(){return actors;}
     
     //+setters
-    public void setId(Integer id){this.id = id;}
-    public void setFilmRatig(String imdbRating){this.imdbRating = imdbRating;}
-    public void setFilmYear(String filmYear){this.filmYear = filmYear;}
+    public void setId(int id){this.id = id;}
+    public void setFilmRatig(double imdbRating){this.imdbRating = imdbRating;}
+    public void setFilmYear(int filmYear){this.filmYear = filmYear;}
     public void setDirectorList(List<Director> directors){this.directors = directors;}
     public void setActorList(List<Actor> actors){this.actors = actors;}
     public void setFilmID(String filmId){this.filmId = filmId;}

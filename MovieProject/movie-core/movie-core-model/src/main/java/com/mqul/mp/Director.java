@@ -11,66 +11,34 @@ import java.io.Serializable;
  */
 @Table(name = "directors")
 @Entity
-public class Director implements Serializable, TransferableObject<DirectorDTO>
+public class Director extends Person implements Serializable, TransferableObject<DirectorDTO>
 {
-    @Id
-    @Column(name = "director_id")
-    private Integer id;
-
     @Column(name = "imdb_id")
     private String directorID;
-
-    @Column(name = "director_firstNames")
-    private String firstNames;
-
-    @Column(name = "director_lastName")
-    private String lastName;
 
     public Director()
     {
         //
     }
 
-    public Director(String directorID, String firstNames, String lastName)
+    public Director(int id, String directorID, String firstNames, String lastName)
     {
+        super(id, firstNames, lastName);
         this.directorID = directorID;
-        this.firstNames = firstNames;
-        this.lastName = lastName;
     }
 
-    public Integer getId()
+    public String getDirectorID()
     {
-        return id;
-    }
-
-    public void setId(Integer id){this.id = id;}
-
-    public String getDirectorID() {
         return directorID;
     }
 
-    public void setDirectorID(String directorID) {
+    public void setDirectorID(String directorID)
+    {
         this.directorID = directorID;
-    }
-
-    public String getFirstNames() {
-        return firstNames;
-    }
-
-    public void setFirstNames(String firstNames) {
-        this.firstNames = firstNames;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public DirectorDTO transferToDTO()
     {
-        return new DirectorDTO(id, directorID, firstNames, lastName);
+        return new DirectorDTO(super.getId(), directorID, super.getFirstNames(), super.getLastName());
     }
 }

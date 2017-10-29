@@ -19,7 +19,7 @@ public class LookupFilmDirectors {
     @Column(name = "film_id")
     private Integer filmId;
 
-    @Column(name = "director_id")
+    @Column(name = "id")
     private Integer directorId;
 
     public LookupFilmDirectors()

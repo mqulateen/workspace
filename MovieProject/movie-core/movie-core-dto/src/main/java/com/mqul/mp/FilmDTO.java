@@ -7,8 +7,8 @@ public class FilmDTO
     private Integer id;
     private String filmName;
     private String filmId;
-    private String imdbRating;
-    private String filmYear;
+    private double imdbRating;
+    private int filmYear;
     private List<DirectorDTO> directors;
     private List<ActorDTO> actors;
 
@@ -17,7 +17,7 @@ public class FilmDTO
         //
     }
 
-    public FilmDTO(Integer id, String filmName, String filmId, String imdbRating, String filmYear, List<DirectorDTO> directors, List<ActorDTO> actors)
+    public FilmDTO(Integer id, String filmName, String filmId, double imdbRating, int filmYear, List<DirectorDTO> directors, List<ActorDTO> actors)
     {
         this.id = id;
         this.filmName = filmName;
@@ -43,12 +43,12 @@ public class FilmDTO
         return filmId;
     }
 
-    public String getImdbRating()
+    public double getImdbRating()
     {
         return imdbRating;
     }
 
-    public String getFilmYear()
+    public int getFilmYear()
     {
         return filmYear;
     }
