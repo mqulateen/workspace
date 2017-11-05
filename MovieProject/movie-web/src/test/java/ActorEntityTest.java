@@ -1,5 +1,6 @@
 import com.mqul.mp.Actor;
 import com.mqul.mp.PersonRepo;
+import com.mqul.mp.PersonType;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import static com.mqul.mp.PersonType.*;
 import static org.junit.Assert.assertEquals;
 
 public class ActorEntityTest {
@@ -34,7 +36,7 @@ public class ActorEntityTest {
         a.setFirstNames("test");
         a.setLastName("user");
 
-        repo.addNewActor(a);
+        repo.addPerson(a);
 
         final Actor insertedActor = repo.findActorById(PRIMARY_KEY);
 
@@ -49,10 +51,10 @@ public class ActorEntityTest {
     public void attemptToRemoveActorTwiceTest()
     {
         log.info("removing test actor with the id {}", PRIMARY_KEY);
-        repo.removeActor(PRIMARY_KEY);
+        repo.removePerson(PRIMARY_KEY, ACTOR);
 
         log.info("attempt second removal of actor with id {}, should fail", PRIMARY_KEY);
-        repo.removeActor(PRIMARY_KEY);
+        repo.removePerson(PRIMARY_KEY, ACTOR);
     }
 
     @AfterClass
@@ -60,7 +62,7 @@ public class ActorEntityTest {
     {
         try
         {
-            repo.removeActor(PRIMARY_KEY);
+            repo.removePerson(PRIMARY_KEY, ACTOR);
         }
         catch (IllegalArgumentException e)
         {

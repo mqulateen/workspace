@@ -25,60 +25,48 @@ public class PersonRepo {
         return entityManager.find(Director.class, id);
     }
 
-    public void addNewActor(Actor actor)
+    public void addPerson(Person p)
     {
-        Actor tmpActor = findActorById(actor.getId());
+        final Person person;
 
-        if(tmpActor != null)
+        if(p instanceof Actor)
+            person = findActorById(p.getId());
+        else if(p instanceof Director)
+            person = findDirectorById(p.getId());
+        else
+            throw new IllegalArgumentException("Unknown object of Class: " + p.getClass().getName());
+
+        if(person != null)
         {
             throw new IllegalArgumentException(
-                    String.format("Actor with the id [%s] already exists", actor.getId())
+                    String.format("Person with the id [%s] already exists", person.getId())
             );
         }
         else
         {
-            persist(actor);
+            persist(p);
         }
     }
 
-    public void addNewDirector(Director director)
+    public void removePerson(int personId, PersonType type)
     {
-        Director tmpDirector = findDirectorById(director.getId());
+        final Person p;
 
-        if(tmpDirector != null)
+        switch(type)
         {
-            throw new IllegalArgumentException(
-                    String.format("Actor with the id [%s] already exists", director.getId())
-            );
+            case ACTOR:
+                p = findActorById(personId);
+                break;
+            case DIRECTOR:
+                p = findDirectorById(personId);
+                break;
+            default:
+                throw new IllegalArgumentException(
+                        String.format("Could not find Person with the id [%d]", personId)
+                );
         }
-        else
-        {
-            persist(director);
-        }
-    }
 
-    public void removeActor(int actorId)
-    {
-        Actor actor = findActorById(actorId);
-
-        if(actor == null)
-            throw new IllegalArgumentException(
-                    String.format("Could not find an Actor with the id [%d]", actorId)
-            );
-
-        entityManager.remove(actor);
-    }
-
-    public void removeDirector(int directorId)
-    {
-        Director director = findDirectorById(directorId);
-
-        if(director == null)
-            throw new IllegalArgumentException(
-                    String.format("Could not find a Director with the id [%d]", directorId)
-            );
-
-        entityManager.remove(director);
+        entityManager.remove(p);
     }
 
     public List getAll(PersonType type)
@@ -90,13 +78,44 @@ public class PersonRepo {
         return q.getResultList();
     }
 
-    private void persist(Actor actor)
+    public void updatePerson(Person person)
     {
-        entityManager.persist(actor);
+        if(person instanceof Actor)
+            updateActor(((Actor) person));
+        else if(person instanceof Director)
+            updateDirector(((Director) person));
     }
 
-    private void persist(Director director)
+    private void updateActor(Actor updatedActor)
     {
-        entityManager.persist(director);
+        Actor actor = findActorById(updatedActor.getId());
+
+        if(updatedActor.getFirstNames() != null)
+            actor.setFirstNames(updatedActor.getFirstNames());
+
+        if(updatedActor.getLastName() != null)
+            actor.setLastName(updatedActor.getLastName());
+
+        if(updatedActor.getActorID() != null)
+            actor.setActorID(updatedActor.getActorID());
+    }
+
+    private void updateDirector(Director updatedDirector)
+    {
+        Director director = findDirectorById(updatedDirector.getId());
+
+        if(updatedDirector.getFirstNames() != null)
+            director.setFirstNames(updatedDirector.getFirstNames());
+
+        if(updatedDirector.getLastName() != null)
+            director.setLastName(updatedDirector.getLastName());
+
+        if(updatedDirector.getDirectorID() != null)
+            director.setDirectorID(updatedDirector.getDirectorID());
+    }
+
+    private void persist(Person person)
+    {
+        entityManager.persist(person);
     }
 }

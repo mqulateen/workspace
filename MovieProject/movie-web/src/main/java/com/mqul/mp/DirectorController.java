@@ -35,7 +35,7 @@ public class DirectorController {
     {
         if (Objects.nonNull(resource))
         {
-            repo.addNewDirector(resource);
+            repo.addPerson(resource);
             return true;
         }
         else

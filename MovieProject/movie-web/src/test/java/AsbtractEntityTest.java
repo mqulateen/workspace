@@ -39,7 +39,7 @@ public class AsbtractEntityTest {
         for(int key : PRIMARY_KEYS)
         {
             final Actor actor = new Actor(key, "a"+key, firstName+key, lastName+key);
-            repo.addNewActor(actor);
+            repo.addPerson(actor);
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed
@@ -62,7 +62,7 @@ public class AsbtractEntityTest {
         for(int key : PRIMARY_KEYS)
         {
             final Director director = new Director(key, "d"+key, firstName+key, lastName+key);
-            repo.addNewDirector(director);
+            repo.addPerson(director);
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed
@@ -85,9 +85,9 @@ public class AsbtractEntityTest {
         {
             try
             {
-                repo.removeActor(id);
+                repo.removePerson(id, PersonType.ACTOR);
 
-                repo.removeDirector(id);
+                repo.removePerson(id, PersonType.DIRECTOR);
             }
             catch (IllegalArgumentException ex)
             {

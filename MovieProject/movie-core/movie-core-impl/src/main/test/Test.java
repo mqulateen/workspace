@@ -30,7 +30,7 @@ public class Test {
         a.setFirstNames("firstNames");
         a.setLastName("lastname");
 
-        repo.addNewActor(a);
+        repo.addPerson(a);
 
         Actor foundAcotr = repo.findActorById(1);
 

@@ -29,14 +29,14 @@ public class ActorController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<Actor> findAll()
+    public List<Actor> getAll()
     {
         return repo.getAll(PersonType.ACTOR);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Actor findById(@PathVariable("id") int id)
+    public Actor getById(@PathVariable("id") int id)
     {
         return repo.findActorById( id );
     }
@@ -48,7 +48,7 @@ public class ActorController {
     {
         if (Objects.nonNull(resource))
         {
-            repo.addNewActor(resource);
+            repo.addPerson(resource);
             return true;
         }
         else
@@ -56,13 +56,14 @@ public class ActorController {
             throw new NullPointerException("Incorrect data - value: " + resource);
         }
     }
-//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//    @ResponseStatus(HttpStatus.OK)
-//    public void update(@PathVariable( "id" ) Long id, @RequestBody Foo resource) {
-//        Preconditions.checkNotNull(resource);
-//        RestPreconditions.checkNotNull(service.getById( resource.getId()));
-//        service.update(resource);
-//    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public void update(@PathVariable( "id" ) int id, @RequestBody Actor actor) {
+//        Preconditions.checkNotNull(actor);
+//        RestPreconditions.checkNotNull(repo.findActorById(actor.getId()));
+//        repo.update(actor);
+    }
 
 //    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 //    @ResponseStatus(HttpStatus.OK)
