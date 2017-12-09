@@ -78,3 +78,7 @@ The eclipselink jar has to be copied into wildfly:
 To prevent terminal from asking for passwd everything sudo command is ran:
 	add user to - sudo visudo
 		add this line: username ALL=(ALL:ALL) NOPASSWD: ALL
+
+=============================================================
+
+update pg_authid set rolname = 'postgres' where rolname = 'mohamed';

@@ -48,10 +48,6 @@ CREATE TABLE Lookup_Film_Directors(
 ALTER TABLE Films ADD imdb_rating NUMERIC(3,1) NOT NULL;
 
 --copy in everything below AFTER you execute eveything above
-
---set the db we're looking at the the one created above
-USE db_Movie;
-
 --since the film_id is auto increment we dont need to explictly add a value for it
 INSERT into Films (film_name, film_year, imdb_id, imdb_rating) 
 VALUES ('Spider-Man', 2002, '0145487', 7.3),

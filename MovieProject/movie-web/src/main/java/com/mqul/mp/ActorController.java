@@ -65,9 +65,9 @@ public class ActorController {
 //        repo.update(actor);
     }
 
-//    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-//    @ResponseStatus(HttpStatus.OK)
-//    public void deleteActor(@PathVariable("id") Long id) {
-//        repo.deleteActorById(id);
-//    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteActor(@PathVariable("id") int id) {
+        repo.removePerson(id, PersonType.ACTOR);
+    }
 }
