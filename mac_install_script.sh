@@ -7,7 +7,7 @@ echo 'Installing brew...'
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 #make brew install dir at root for quick access
-ln -s /usr/local/opt /opt
+sudo ln -s /usr/local/opt /opt
 
 #install stuff
 echo 'Installing software/tools (git,java,wildfly,etc.)...'
@@ -27,7 +27,7 @@ brew cask install intellij-idea-ce
 #put wildfly log in mac log folder
 echo 'Changing wildfly log to: /var/log/wildfly/console.log'
 mkdir /var/log/wildfly
-ln -s /opt/wildfly-as/libexec/standalone/log/server.log /var/log/wildfly/console.log
+sudo ln -s /opt/wildfly-as/libexec/standalone/log/server.log /var/log/wildfly/console.log
 
 #make dir for scripts
 echo 'Making scripts folder'
