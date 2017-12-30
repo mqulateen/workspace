@@ -1,0 +1,6 @@
+
+#ignore jar files
+*.jar
+
+#ignore compiled files
+*.class
