@@ -4,3 +4,6 @@
 
 #ignore compiled files
 *.class
+
+#ignore from .idea dir
+MovieProject/.idea/*
