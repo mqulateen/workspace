@@ -1,7 +1,7 @@
-/home/mohamed/workspace/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Film.java
-/home/mohamed/workspace/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/LookupFilmDirectors.java
-/home/mohamed/workspace/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Actor.java
-/home/mohamed/workspace/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/LookupFilmActors.java
-/home/mohamed/workspace/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Person.java
-/home/mohamed/workspace/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Director.java
-/home/mohamed/workspace/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/oFilms.java
+/Users/mohamed/workspaces/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Director.java
+/Users/mohamed/workspaces/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/LookupFilmDirectors.java
+/Users/mohamed/workspaces/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Film.java
+/Users/mohamed/workspaces/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Person.java
+/Users/mohamed/workspaces/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/Actor.java
+/Users/mohamed/workspaces/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/LookupFilmActors.java
+/Users/mohamed/workspaces/MovieProject/movie-core/movie-core-model/src/main/java/com/mqul/mp/oFilms.java

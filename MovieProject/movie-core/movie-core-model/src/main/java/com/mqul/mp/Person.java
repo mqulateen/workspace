@@ -1,8 +1,6 @@
 package com.mqul.mp;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @MappedSuperclass
@@ -10,7 +8,8 @@ public abstract class Person implements Serializable
 {
     @Id
     @Column(name = "id")
-    private Integer id;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
 
     @Column(name = "firstNames")
     private String firstNames;
@@ -23,9 +22,8 @@ public abstract class Person implements Serializable
         //
     }
 
-    public Person(int id, String firstNames, String lastName)
+    public Person(String firstNames, String lastName)
     {
-        this.id = id;
         this.firstNames = firstNames;
         this.lastName = lastName;
     }
@@ -43,11 +41,6 @@ public abstract class Person implements Serializable
     public String getLastName()
     {
         return lastName;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
     }
 
     public void setFirstNames(String firstNames)

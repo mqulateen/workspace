@@ -21,9 +21,9 @@ public class Director extends Person implements Serializable, TransferableObject
         //
     }
 
-    public Director(int id, String directorID, String firstNames, String lastName)
+    public Director(String directorID, String firstNames, String lastName)
     {
-        super(id, firstNames, lastName);
+        super(firstNames, lastName);
         this.directorID = directorID;
     }
 

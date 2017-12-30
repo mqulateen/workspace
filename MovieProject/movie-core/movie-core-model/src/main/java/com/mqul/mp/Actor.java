@@ -23,7 +23,7 @@ public class Actor extends Person implements Serializable, TransferableObject<Ac
 
     public Actor(Integer id, String actorID, String firstNames, String lastName)
     {
-        super(id, firstNames, lastName);
+        super(firstNames, lastName);
         this.actorID = actorID;
     }
 

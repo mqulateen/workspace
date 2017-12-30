@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: DirectorEntityTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 sec - in DirectorEntityTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.206 sec
