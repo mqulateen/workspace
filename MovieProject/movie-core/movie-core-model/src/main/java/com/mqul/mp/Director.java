@@ -13,32 +13,28 @@ import java.io.Serializable;
 @Entity
 public class Director extends Person implements Serializable, TransferableObject<DirectorDTO>
 {
-    @Column(name = "imdb_id")
-    private String directorID;
+    @Id
+    @Column(name = "director_id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
     public Director()
     {
         //
     }
 
-    public Director(String directorID, String firstNames, String lastName)
+    public Director(String imdbRef, String firstNames, String lastName)
     {
-        super(firstNames, lastName);
-        this.directorID = directorID;
+        super(imdbRef, firstNames, lastName);
     }
 
-    public String getDirectorID()
+    public int getID()
     {
-        return directorID;
-    }
-
-    public void setDirectorID(String directorID)
-    {
-        this.directorID = directorID;
+        return id;
     }
 
     public DirectorDTO transferToDTO()
     {
-        return new DirectorDTO(super.getId(), directorID, super.getFirstNames(), super.getLastName());
+        return new DirectorDTO(id, super.getImdbRef(), super.getFirstNames(), super.getLastName());
     }
 }

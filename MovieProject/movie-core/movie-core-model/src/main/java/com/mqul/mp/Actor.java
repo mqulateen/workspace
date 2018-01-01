@@ -13,32 +13,28 @@ import java.io.Serializable;
 @Entity
 public class Actor extends Person implements Serializable, TransferableObject<ActorDTO>
 {
-    @Column(name = "imdb_id")
-    private String actorID;
+    @Id
+    @Column(name = "actor_id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
     public Actor()
     {
         //
     }
 
-    public Actor(Integer id, String actorID, String firstNames, String lastName)
+    public Actor(String imdbRef, String firstNames, String lastName)
     {
-        super(firstNames, lastName);
-        this.actorID = actorID;
+        super(imdbRef, firstNames, lastName);
     }
 
-    public String getActorID()
+    public int getID()
     {
-        return actorID;
-    }
-
-    public void setActorID(String actorID)
-    {
-        this.actorID = actorID;
+        return id;
     }
 
     public ActorDTO transferToDTO()
     {
-        return new ActorDTO(super.getId(), actorID, super.getFirstNames(), super.getLastName());
+        return new ActorDTO(id, super.getImdbRef(), super.getFirstNames(), super.getLastName());
     }
 }

@@ -1,7 +1,4 @@
-import com.mqul.mp.Actor;
-import com.mqul.mp.Director;
-import com.mqul.mp.PersonRepo;
-import com.mqul.mp.PersonType;
+import com.mqul.mp.*;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -20,78 +17,82 @@ public class AsbtractEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(ActorEntityTest.class);
 
-    private static PersonRepo repo;
+    private static PersonRepo personRepo;
+    private static ActorRepo actorRepo;
+    private static DirectorRepo directorRepo;
 
-    private final static List<Integer> PRIMARY_KEYS = Arrays.asList(997, 998, 999);
+    private final static List<String> REFS = Arrays.asList("997", "998", "999");
     private final static String firstName = "first", lastName = "last";
 
     @BeforeClass
     public static void init()
     {
         final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        repo = context.getBean(PersonRepo.class);
+        personRepo = context.getBean(PersonRepo.class);
+        actorRepo = context.getBean(ActorRepo.class);
+        directorRepo = context.getBean(DirectorRepo.class);
     }
 
     @Test
     public void retrieveAllActors()
     {
         //insert some test actors
-        for(int key : PRIMARY_KEYS)
+        for(String key : REFS)
         {
-            final Actor actor = new Actor(key, "a"+key, firstName+key, lastName+key);
-            repo.addPerson(actor);
+            final Actor actor = new Actor("a"+key, firstName+key, lastName+key);
+            actorRepo.addActor(actor);
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed
-        List<Actor> actors = repo.getAll(PersonType.ACTOR);
+        List<Actor> actors = personRepo.getAll(PersonType.ACTOR);
 
         for(Actor actor : actors)
         {
-            if(PRIMARY_KEYS.contains(actor.getId()))
+            if(REFS.contains(actor.getImdbRef()))
             {
-                assertEquals(actor.getFirstNames(), firstName+actor.getId());
-                assertEquals(actor.getLastName(), lastName+actor.getId());
+                assertEquals(actor.getFirstNames(), firstName+actor.getImdbRef());
+                assertEquals(actor.getLastName(), lastName+actor.getImdbRef());
             }
         }
     }
-    
+
     @Test
     public void retrieveAllDirectors()
     {
         //insert some test directors
-        for(int key : PRIMARY_KEYS)
+        for(String key : REFS)
         {
-            final Director director = new Director(key, "d"+key, firstName+key, lastName+key);
-            repo.addPerson(director);
+            final Director director = new Director("d"+key, firstName+key, lastName+key);
+            directorRepo.addDirector(director);
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed
-        List<Director> directors = repo.getAll(PersonType.DIRECTOR);
+        List<Director> directors = personRepo.getAll(PersonType.DIRECTOR);
 
         for(Director director : directors)
         {
-            if(PRIMARY_KEYS.contains(director.getId()))
+            if(REFS.contains(director.getImdbRef()))
             {
-                assertEquals(director.getFirstNames(), firstName+director.getId());
-                assertEquals(director.getLastName(), lastName+director.getId());
+                assertEquals(director.getFirstNames(), firstName+director.getImdbRef());
+                assertEquals(director.getLastName(), lastName+director.getImdbRef());
             }
         }
     }
-    
+
     @AfterClass
     public static void dbCleanUp()
     {
-        for(int id : PRIMARY_KEYS)
+        for(String ref : REFS)
         {
             try
             {
-                repo.removePerson(id, PersonType.ACTOR);
+                personRepo.removePerson(actorRepo.findActorByRef(ref).getID(), PersonType.ACTOR);
 
-                repo.removePerson(id, PersonType.DIRECTOR);
+                personRepo.removePerson(directorRepo.findDirectorByRef(ref).getID(), PersonType.DIRECTOR);
             }
             catch (IllegalArgumentException ex)
             {
-                log.warn("person with id {} was not found. Error: {}", id, ex);
+                log.warn("person with imdb ref {} was not found. Error: {}", ref, ex);
             }
         }
     }

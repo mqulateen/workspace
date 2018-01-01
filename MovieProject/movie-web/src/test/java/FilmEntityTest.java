@@ -29,13 +29,13 @@ public class FilmEntityTest {
     @Test
     public void getAllFilms()
     {
-        repo.addNewFilm(new Film(PRIMARY_KEY, "f"+PRIMARY_KEY, "Film: The Test", 5.6, 2007));
+        repo.addNewFilm(new Film("f"+PRIMARY_KEY, "Film: The Test", 5.6, 2007));
 
-        List<Film> films = repo.getAll();
+        List<Film> films = repo.getAllFilms();
 
         int finalIndex = films.size()-1;
 
-        assertEquals(films.get(finalIndex).getFilmID(), "f999");
+        assertEquals(films.get(finalIndex).getImdbRef(), "f999");
         assertEquals(films.get(finalIndex).getFilmName(), "Film: The Test");
     }
 

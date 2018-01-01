@@ -18,7 +18,7 @@ public class FilmController {
     @ResponseBody
     public List<Film> findAll()
     {
-        return repo.getAll();
+        return repo.getAllFilms();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -1,4 +1,5 @@
 import com.mqul.mp.Actor;
+import com.mqul.mp.ActorRepo;
 import com.mqul.mp.PersonRepo;
 import com.mqul.mp.PersonType;
 import org.junit.AfterClass;
@@ -16,31 +17,33 @@ public class ActorEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(ActorEntityTest.class);
 
-    private static PersonRepo repo;
+    private static PersonRepo personRepo;
+    private static ActorRepo actorRepo;
 
-    private final static int PRIMARY_KEY = 999;
+    private final static String REF = "999";
 
     @BeforeClass
     public static void init()
     {
         final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        repo = context.getBean(PersonRepo.class);
+        personRepo = context.getBean(PersonRepo.class);
+        actorRepo = context.getBean(ActorRepo.class);
     }
 
     @Test
     public void actorEntityTest()
     {
         Actor a = new Actor();
-        a.setId(PRIMARY_KEY);
-        a.setActorID("999");
+        a.setImdbRef(REF);
         a.setFirstNames("test");
         a.setLastName("user");
 
-        repo.addPerson(a);
+        actorRepo.addActor(a);
 
-        final Actor insertedActor = repo.findActorById(PRIMARY_KEY);
+        final Actor insertedActor = actorRepo.findActorByRef(REF);
 
-        assertEquals(a.getActorID(), insertedActor.getActorID());
+        assertEquals(a.getID(), insertedActor.getID());
+        assertEquals(a.getImdbRef(), insertedActor.getImdbRef());
         assertEquals(a.getFirstNames(), insertedActor.getFirstNames());
         assertEquals(a.getLastName(), insertedActor.getLastName());
 
@@ -50,11 +53,13 @@ public class ActorEntityTest {
     @Test(expected = IllegalArgumentException.class)
     public void attemptToRemoveActorTwiceTest()
     {
-        log.info("removing test actor with the id {}", PRIMARY_KEY);
-        repo.removePerson(PRIMARY_KEY, ACTOR);
+        final int actorId = actorRepo.findActorByRef(REF).getID();
 
-        log.info("attempt second removal of actor with id {}, should fail", PRIMARY_KEY);
-        repo.removePerson(PRIMARY_KEY, ACTOR);
+        log.info("removing test actor with the imdb ref {} and id {}", REF, actorId);
+        personRepo.removePerson(actorId, ACTOR);
+
+        log.info("attempt second removal of actor with imdb ref {} and id {}, should fail", REF, actorId);
+        personRepo.removePerson(actorId, ACTOR);
     }
 
     @AfterClass
@@ -62,11 +67,12 @@ public class ActorEntityTest {
     {
         try
         {
-            repo.removePerson(PRIMARY_KEY, ACTOR);
+            final int actorId = actorRepo.findActorByRef(REF).getID();
+            personRepo.removePerson(actorId, ACTOR);
         }
         catch (IllegalArgumentException e)
         {
-            log.warn("The actor with id {} does not exist", PRIMARY_KEY);
+            log.warn("The actor with ref {} does not exist", REF);
         }
     }
 }

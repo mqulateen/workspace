@@ -9,10 +9,13 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/actor")
-public class ActorController {
+public class ActorController
+{
+    @Autowired
+    private PersonRepo personRepo;
 
     @Autowired
-    private PersonRepo repo;
+    private ActorRepo actorRepo;
 
 //    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
 //    ResponseEntity<List<Actor>> actors(@PathVariable("id") Integer filmId)
@@ -31,14 +34,14 @@ public class ActorController {
     @ResponseBody
     public List<Actor> getAll()
     {
-        return repo.getAll(PersonType.ACTOR);
+        return personRepo.getAll(PersonType.ACTOR);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{ref}", method = RequestMethod.GET)
     @ResponseBody
-    public Actor getById(@PathVariable("id") int id)
+    public Actor getByRef(@PathVariable("ref") String ref)
     {
-        return repo.findActorById( id );
+        return actorRepo.findActorByRef(ref);
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -48,7 +51,7 @@ public class ActorController {
     {
         if (Objects.nonNull(resource))
         {
-            repo.addPerson(resource);
+            actorRepo.addActor(resource);
             return true;
         }
         else
@@ -68,6 +71,6 @@ public class ActorController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteActor(@PathVariable("id") int id) {
-        repo.removePerson(id, PersonType.ACTOR);
+        personRepo.removePerson(id, PersonType.ACTOR);
     }
 }

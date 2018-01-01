@@ -6,31 +6,25 @@ import java.io.Serializable;
 @MappedSuperclass
 public abstract class Person implements Serializable
 {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
-
     @Column(name = "firstNames")
     private String firstNames;
 
     @Column(name = "lastName")
     private String lastName;
 
+    @Column(name = "imdb_ref")
+    private String imdbRef;
+
     public Person()
     {
         //
     }
 
-    public Person(String firstNames, String lastName)
+    public Person(String imdbRef, String firstNames, String lastName)
     {
+        this.imdbRef = imdbRef;
         this.firstNames = firstNames;
         this.lastName = lastName;
-    }
-
-    public int getId()
-    {
-        return id;
     }
 
     public String getFirstNames()
@@ -38,18 +32,28 @@ public abstract class Person implements Serializable
         return firstNames;
     }
 
-    public String getLastName()
-    {
-        return lastName;
-    }
-
     public void setFirstNames(String firstNames)
     {
         this.firstNames = firstNames;
     }
 
+    public String getLastName()
+    {
+        return lastName;
+    }
+
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
+    }
+
+    public String getImdbRef()
+    {
+        return imdbRef;
+    }
+
+    public void setImdbRef(String imdbRef)
+    {
+        this.imdbRef = imdbRef;
     }
 }

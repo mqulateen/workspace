@@ -24,7 +24,8 @@
         <property name="jpaPropertyMap">
             <map>
                 <entry key="eclipselink.logging.level" value="Severe"/>
-                <entry key="eclipselink.target-database" value="org.eclipse.persistence.platform.database.oracle.OraclePlatform"/>
+                <entry key="eclipselink.target-database" value="PostgreSQL"/>
+                <!-- <entry key="eclipselink.target-database" value="org.eclipse.persistence.platform.database.oracle.OraclePlatform"/> -->
                 <!-- it's not good that I'm turning weaving off -->
                 <entry key="eclipselink.weaving" value="false"/>
             </map>
@@ -33,6 +34,8 @@
 
     <bean class="com.mqul.mp.PersonRepo" id="personRepo"/>
     <bean class="com.mqul.mp.FilmRepo" id="filmRepo"/>
+    <bean class="com.mqul.mp.ActorRepo" id="actorRepo"/>
+    <bean class="com.mqul.mp.DirectorRepo" id="directorRepo"/>
 
     <!-- Look up the database in JNDI -->
     <!--<jee:jndi-lookup jndi-name="java:jboss/datasources/ExampleDS" id="dataSource"-->

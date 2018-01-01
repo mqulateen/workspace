@@ -1,16 +1,22 @@
 package com.mqul.mp;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
 @Repository
 @Transactional
-public class FilmRepo {
+@SuppressWarnings("unchecked")
+public class FilmRepo
+{
+    private Logger log = LoggerFactory.getLogger(FilmRepo.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -20,14 +26,29 @@ public class FilmRepo {
         return entityManager.find(Film.class, id);
     }
 
-    public List getAll()
+    public Film findFilmByRef(String filmImdbRef)
+    {
+        try
+        {
+            return Film.class.cast(
+                    entityManager.createQuery("SELECT f FROM Film f WHERE f.imdbRef = :imdbRef")
+                            .setParameter("imdbRef", filmImdbRef).getSingleResult()
+            );
+        }
+        catch (NoResultException nre)
+        {
+            log.error("Could not find Film with the given imdb ref [{}]", filmImdbRef);
+            return null;
+        }
+    }
+
+    public List getAllFilms()
     {
         Query q = entityManager.createQuery("SELECT f FROM Film f");
 
         return q.getResultList();
     }
 
-    @SuppressWarnings("unchecked")
     public List<Actor> getActorsByFilmId(int filmId)
     {
         QueryBuilder qb = new QueryBuilder("SELECT a FROM Actor a, LookupFilmActors lp, Film f");
@@ -59,7 +80,7 @@ public class FilmRepo {
 
     public void addNewFilm(Film film)
     {
-        Film tmpFilm = findFilmById(film.getId());
+        Film tmpFilm = findFilmByRef(film.getImdbRef());
 
         if(tmpFilm != null)
         {

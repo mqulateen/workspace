@@ -18,13 +18,14 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
 {
     @Id
     @Column(name = "film_id")
-    private Integer id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "film_name")
     private String filmName;
 
-    @Column(name = "imdb_id")
-    private String filmId;
+    @Column(name = "imdb_ref")
+    private String imdbRef;
 
     @Column(name = "imdb_rating")
     private double imdbRating;
@@ -43,10 +44,9 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
         actors = new ArrayList<Actor>();
     }
     
-    public Film(int id, String filmID, String filmName, double imdbRating, int filmYear)
+    public Film(String imdbRef, String filmName, double imdbRating, int filmYear)
     {
-        this.id = id;
-        this.filmId = filmID;
+        this.imdbRef = imdbRef;
         this.filmName = filmName;
         this.imdbRating = imdbRating;
         this.filmYear = filmYear;
@@ -54,10 +54,75 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
         actors = new ArrayList<Actor>();
     }
     
-    public Film(int id, String filmID, String filmName, double imdbRating,
+    public Film(String imdbRef, String filmName, double imdbRating,
                 List<Director> directors, List<Actor> actors, int filmYear){
-        this(id, filmID, filmName, imdbRating, filmYear);
+        this(imdbRef, filmName, imdbRating, filmYear);
         this.directors = directors;
+        this.actors = actors;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public String getFilmName()
+    {
+        return filmName;
+    }
+
+    public void setFilmName(String filmName)
+    {
+        this.filmName = filmName;
+    }
+
+    public String getImdbRef()
+    {
+        return imdbRef;
+    }
+
+    public void setImdbRef(String imdbRef)
+    {
+        this.imdbRef = imdbRef;
+    }
+
+    public double getImdbRating()
+    {
+        return imdbRating;
+    }
+
+    public void setImdbRating(double imdbRating)
+    {
+        this.imdbRating = imdbRating;
+    }
+
+    public int getFilmYear()
+    {
+        return filmYear;
+    }
+
+    public void setFilmYear(int filmYear)
+    {
+        this.filmYear = filmYear;
+    }
+
+    public List<Director> getDirectors()
+    {
+        return directors;
+    }
+
+    public void setDirectors(List<Director> directors)
+    {
+        this.directors = directors;
+    }
+
+    public List<Actor> getActors()
+    {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors)
+    {
         this.actors = actors;
     }
 
@@ -67,27 +132,11 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
 //               &&!(Objects.isNull(filmName) || filmName.isEmpty());
 //    }
 
-    //+getters
-    public int getId(){return id;}
-    public String getFilmID(){return filmId;}
-    public String getFilmName(){return filmName;}
-    public double getFilmRating(){return imdbRating;}
-    public int getFilmYear(){return filmYear;}
-    public List<Director> getDirectorList(){return directors;}
-    public List<Actor> getActorList(){return actors;}
-    
-    //+setters
-    public void setId(int id){this.id = id;}
-    public void setFilmRatig(double imdbRating){this.imdbRating = imdbRating;}
-    public void setFilmYear(int filmYear){this.filmYear = filmYear;}
-    public void setDirectorList(List<Director> directors){this.directors = directors;}
-    public void setActorList(List<Actor> actors){this.actors = actors;}
-    public void setFilmID(String filmId){this.filmId = filmId;}
-    public void setFilmName(String filmName){this.filmName = filmName;}
+
 
     public FilmDTO transferToDTO()
     {
-        return new FilmDTO(id, filmName, filmId, imdbRating, filmYear,
+        return new FilmDTO(id, filmName, imdbRef, imdbRating, filmYear,
                             TransferableUtils.transferList(directors),
                             TransferableUtils.transferList(actors));
     }

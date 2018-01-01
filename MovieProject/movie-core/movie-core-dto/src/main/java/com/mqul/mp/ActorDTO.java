@@ -2,8 +2,8 @@ package com.mqul.mp;
 
 public class ActorDTO
 {
-    private Integer id;
-    private String actorId;
+    private int id;
+    private String imdbRef;
     private String firstNames;
     private String lastName;
 
@@ -12,22 +12,22 @@ public class ActorDTO
         //
     }
 
-    public ActorDTO(Integer id, String actorId, String firstNames, String lastName)
+    public ActorDTO(int id, String imdbRef, String firstNames, String lastName)
     {
         this.id = id;
-        this.actorId = actorId;
+        this.imdbRef = imdbRef;
         this.firstNames = firstNames;
         this.lastName = lastName;
     }
 
-    public Integer getId()
+    public int getId()
     {
         return id;
     }
 
-    public String getActorId()
+    public String getImdbRef()
     {
-        return actorId;
+        return imdbRef;
     }
 
     public String getFirstNames()

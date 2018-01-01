@@ -1,4 +1,5 @@
 import com.mqul.mp.Director;
+import com.mqul.mp.DirectorRepo;
 import com.mqul.mp.PersonRepo;
 import com.mqul.mp.PersonType;
 import org.junit.AfterClass;
@@ -16,31 +17,33 @@ public class DirectorEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(DirectorEntityTest.class);
 
-    private static PersonRepo repo;
+    private static PersonRepo personRepo;
+    private static DirectorRepo directorRepo;
 
-    private final static int PRIMARY_KEY = 999;
+    private final static String REF = "999";
 
     @BeforeClass
     public static void init()
     {
         final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        repo = context.getBean(PersonRepo.class);
+        personRepo = context.getBean(PersonRepo.class);
+        directorRepo = context.getBean(DirectorRepo.class);
     }
 
     @Test
     public void directorEntityTest()
     {
         Director d = new Director();
-        d.setId(PRIMARY_KEY);
-        d.setDirectorID("999");
+        d.setImdbRef(REF);
         d.setFirstNames("test");
         d.setLastName("user");
 
-        repo.addPerson(d);
+        directorRepo.addDirector(d);
 
-        final Director insertedDirector = repo.findDirectorById(PRIMARY_KEY);
+        final Director insertedDirector = directorRepo.findDirectorByRef(REF);
 
-        assertEquals(d.getDirectorID(), insertedDirector.getDirectorID());
+        assertEquals(d.getID(), insertedDirector.getID());
+        assertEquals(d.getImdbRef(), insertedDirector.getImdbRef());
         assertEquals(d.getFirstNames(), insertedDirector.getFirstNames());
         assertEquals(d.getLastName(), insertedDirector.getLastName());
 
@@ -50,11 +53,13 @@ public class DirectorEntityTest {
     @Test(expected = IllegalArgumentException.class)
     public void attemptToRemoveDirectorTwiceTest()
     {
-        log.info("removing test director with the id {}", PRIMARY_KEY);
-        repo.removePerson(PRIMARY_KEY, DIRECTOR);
+        final int directorId = directorRepo.findDirectorByRef(REF).getID();
 
-        log.info("attempt second removal of director with id {}, should fail", PRIMARY_KEY);
-        repo.removePerson(PRIMARY_KEY, DIRECTOR);
+        log.info("removing test director with the imdb ref {} and id {}", REF, directorId);
+        personRepo.removePerson(directorId, DIRECTOR);
+
+        log.info("attempt second removal of actor with imdb ref {} and id {}, should fail", REF, directorId);
+        personRepo.removePerson(directorId, DIRECTOR);
     }
 
     @AfterClass
@@ -62,11 +67,12 @@ public class DirectorEntityTest {
     {
         try
         {
-            repo.removePerson(PRIMARY_KEY, DIRECTOR);
+            final int directorId = directorRepo.findDirectorByRef(REF).getID();
+            personRepo.removePerson(directorId, DIRECTOR);
         }
         catch (IllegalArgumentException e)
         {
-            log.warn("The director with id {} does not exist", PRIMARY_KEY);
+            log.warn("The director with ref {} does not exist", REF);
         }
     }
 }

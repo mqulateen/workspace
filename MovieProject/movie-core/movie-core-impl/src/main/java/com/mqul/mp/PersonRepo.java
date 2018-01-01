@@ -1,5 +1,6 @@
 package com.mqul.mp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,10 +11,16 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class PersonRepo {
-
+public class PersonRepo
+{
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Autowired
+    private ActorRepo actorRepo;
+
+    @Autowired
+    private DirectorRepo directorRepo;
 
     public Actor findActorById(int id)
     {
@@ -23,29 +30,6 @@ public class PersonRepo {
     public Director findDirectorById(int id)
     {
         return entityManager.find(Director.class, id);
-    }
-
-    public void addPerson(Person p)
-    {
-        final Person person;
-
-        if(p instanceof Actor)
-            person = findActorById(p.getId());
-        else if(p instanceof Director)
-            person = findDirectorById(p.getId());
-        else
-            throw new IllegalArgumentException("Unknown object of Class: " + p.getClass().getName());
-
-        if(person != null)
-        {
-            throw new IllegalArgumentException(
-                    String.format("Person with the id [%s] already exists", person.getId())
-            );
-        }
-        else
-        {
-            persist(p);
-        }
     }
 
     public void removePerson(int personId, PersonType type)
@@ -88,30 +72,24 @@ public class PersonRepo {
 
     private void updateActor(Actor updatedActor)
     {
-        Actor actor = findActorById(updatedActor.getId());
+        Actor actor = actorRepo.findActorByRef(updatedActor.getImdbRef());
 
         if(updatedActor.getFirstNames() != null)
             actor.setFirstNames(updatedActor.getFirstNames());
 
         if(updatedActor.getLastName() != null)
             actor.setLastName(updatedActor.getLastName());
-
-        if(updatedActor.getActorID() != null)
-            actor.setActorID(updatedActor.getActorID());
     }
 
     private void updateDirector(Director updatedDirector)
     {
-        Director director = findDirectorById(updatedDirector.getId());
+        Director director = directorRepo.findDirectorByRef(updatedDirector.getImdbRef());
 
         if(updatedDirector.getFirstNames() != null)
             director.setFirstNames(updatedDirector.getFirstNames());
 
         if(updatedDirector.getLastName() != null)
             director.setLastName(updatedDirector.getLastName());
-
-        if(updatedDirector.getDirectorID() != null)
-            director.setDirectorID(updatedDirector.getDirectorID());
     }
 
     private void persist(Person person)

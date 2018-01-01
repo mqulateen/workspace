@@ -12,20 +12,23 @@ import java.util.Objects;
 public class DirectorController {
 
     @Autowired
-    private PersonRepo repo;
+    private PersonRepo personRepo;
+
+    @Autowired
+    private DirectorRepo directorRepo;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<Director> findAll()
     {
-        return repo.getAll(PersonType.DIRECTOR);
+        return personRepo.getAll(PersonType.DIRECTOR);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Director findById(@PathVariable("id") int id)
     {
-        return repo.findDirectorById( id );
+        return personRepo.findDirectorById( id );
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -35,7 +38,7 @@ public class DirectorController {
     {
         if (Objects.nonNull(resource))
         {
-            repo.addPerson(resource);
+            directorRepo.addDirector(resource);
             return true;
         }
         else

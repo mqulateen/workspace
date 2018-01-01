@@ -4,9 +4,9 @@ import java.util.List;
 
 public class FilmDTO
 {
-    private Integer id;
+    private int id;
     private String filmName;
-    private String filmId;
+    private String imdbRef;
     private double imdbRating;
     private int filmYear;
     private List<DirectorDTO> directors;
@@ -17,18 +17,18 @@ public class FilmDTO
         //
     }
 
-    public FilmDTO(Integer id, String filmName, String filmId, double imdbRating, int filmYear, List<DirectorDTO> directors, List<ActorDTO> actors)
+    public FilmDTO(int id, String filmName, String imdbRef, double imdbRating, int filmYear, List<DirectorDTO> directors, List<ActorDTO> actors)
     {
         this.id = id;
         this.filmName = filmName;
-        this.filmId = filmId;
+        this.imdbRef = imdbRef;
         this.imdbRating = imdbRating;
         this.filmYear = filmYear;
         this.directors = directors;
         this.actors = actors;
     }
 
-    public Integer getId()
+    public int getId()
     {
         return id;
     }
@@ -38,9 +38,9 @@ public class FilmDTO
         return filmName;
     }
 
-    public String getFilmId()
+    public String getImdbRef()
     {
-        return filmId;
+        return imdbRef;
     }
 
     public double getImdbRating()
