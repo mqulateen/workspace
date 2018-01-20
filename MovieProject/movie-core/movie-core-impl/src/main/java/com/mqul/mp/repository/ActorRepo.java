@@ -1,0 +1,96 @@
+package com.mqul.mp.repository;
+
+import com.mqul.mp.Actor;
+import com.mqul.mp.QueryBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
+
+@Repository
+@Transactional
+public class ActorRepo
+{
+    private Logger log = LoggerFactory.getLogger(ActorRepo.class);
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public Actor findActorById(int id)
+    {
+        return entityManager.find(Actor.class, id);
+    }
+
+    public Actor findActorByRef(String ref)
+    {
+        Query query = entityManager.createQuery("SELECT a FROM Actor a WHERE a.imdbRef = :imdbRef");
+        query.setParameter("imdbRef", ref);
+
+        try
+        {
+            return (Actor) query.getSingleResult();
+        }
+        catch (NoResultException ex)
+        {
+            log.error("Could not find Actor with the given imdbRef [{}]", ref);
+            return null;
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Actor> getAllActors()
+    {
+        Query query = entityManager.createQuery("SELECT a FROM Actor a");
+
+        return query.getResultList();
+    }
+
+    public Actor updateActor(int id, String firstName, String lastName, String imdbRef)
+    {
+        QueryBuilder qb = new QueryBuilder("UPDATE Actor a");
+
+        if(firstName != null)
+        {
+            qb.set("a.firstNames", firstName);
+        }
+
+        if(lastName != null)
+        {
+            qb.set("a.lastName", lastName);
+        }
+
+        if(imdbRef != null)
+        {
+            qb.set("a.imdbRef", imdbRef);
+        }
+
+        qb.where("a.id", id);
+
+        entityManager.createQuery(qb.build()).executeUpdate();
+
+        return findActorById(id);
+    }
+
+    public void createActor(Actor actor)
+    {
+        entityManager.persist(actor);
+    }
+
+    public void deleteActor(int id)
+    {
+        final Actor actor = findActorById(id);
+
+        remove(actor);
+    }
+
+    public void remove(Actor actor)
+    {
+        entityManager.remove(actor);
+    }
+}
