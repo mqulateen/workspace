@@ -1,49 +1,79 @@
 package com.mqul.mp;
 
+import com.mqul.mp.models.RequestDirector;
+import com.mqul.mp.service.DirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
 
-@RestController
+@Controller
 @RequestMapping("/director")
 public class DirectorController {
 
     @Autowired
-    private PersonRepo personRepo;
+    private DirectorService directorService;
 
-    @Autowired
-    private DirectorRepo directorRepo;
-
+    @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public List<Director> findAll()
+    public List<DirectorDTO> getAllDirectors()
     {
-        return personRepo.getAll(PersonType.DIRECTOR);
+        return directorService.getDirectors();
     }
 
+    @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public Director findById(@PathVariable("id") int id)
+    public DirectorDTO getDirectorById(@PathVariable("id") int id)
     {
-        return personRepo.findDirectorById( id );
+        return directorService.getDirectorById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public boolean createDirector(@RequestBody Director resource)
+    @RequestMapping(value = "/imdb/{ref}", method = RequestMethod.GET)
+    public DirectorDTO getDirectorByRef(@PathVariable("ref") String ref)
     {
-        if (Objects.nonNull(resource))
-        {
-            directorRepo.addDirector(resource);
-            return true;
-        }
-        else
-        {
-            throw new NullPointerException("Incorrect data - value: " + resource);
-        }
+        return directorService.getDirectorByImdbRef(ref);
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(method = RequestMethod.POST)
+    public DirectorDTO createDirector(@RequestBody RequestDirector requestDirector)
+    {
+        Objects.requireNonNull(requestDirector, "Request body cannot be empty");
+
+        return directorService.createDirector(
+                requestDirector.getFirstNames(),
+                requestDirector.getLastName(),
+                requestDirector.getImdbRef()
+        );
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public DirectorDTO updateDirector(@PathVariable( "id" ) int id, @RequestBody RequestDirector requestDirector)
+    {
+        Objects.requireNonNull(getDirectorById(id), "Could not final director with ID: " + id);
+        Objects.requireNonNull(requestDirector, "Request body cannot be empty");
+
+        return directorService.updateDirector(
+                id,
+                requestDirector.getFirstNames(),
+                requestDirector.getLastName(),
+                requestDirector.getImdbRef()
+        );
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteDirector(@PathVariable("id") int id)
+    {
+        Objects.requireNonNull(getDirectorById(id), "Could not find director with ID: " + id);
+
+        directorService.deleteDirector(id);
     }
 }

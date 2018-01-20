@@ -1,76 +1,79 @@
 package com.mqul.mp;
 
+import com.mqul.mp.models.RequestActor;
+import com.mqul.mp.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
 
-@RestController
+@Controller
 @RequestMapping("/actor")
 public class ActorController
 {
     @Autowired
-    private PersonRepo personRepo;
+    private ActorService actorService;
 
-    @Autowired
-    private ActorRepo actorRepo;
-
-//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//    ResponseEntity<List<Actor>> actors(@PathVariable("id") Integer filmId)
-//    {
-//        if(filmId == null)
-//        {
-//            throw new IllegalArgumentException("filmId must be set");
-//        }
-//
-//        List<Actor> actors = repo.getActorsByFilmId(filmId);
-//
-//        return new ResponseEntity<List<Actor>>(actors, HttpStatus.OK);
-//    }
-
+    @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public List<Actor> getAll()
+    public List<ActorDTO> getAllActors()
     {
-        return personRepo.getAll(PersonType.ACTOR);
+        return actorService.getActors();
     }
 
-    @RequestMapping(value = "/{ref}", method = RequestMethod.GET)
     @ResponseBody
-    public Actor getByRef(@PathVariable("ref") String ref)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ActorDTO getActorById(@PathVariable("id") int id)
     {
-        return actorRepo.findActorByRef(ref);
+        return actorService.getActorById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @ResponseBody
+    @RequestMapping(value = "/imdb/{ref}", method = RequestMethod.GET)
+    public ActorDTO getActorByRef(@PathVariable("ref") String ref)
+    {
+        return actorService.getActorByImdbRef(ref);
+    }
+
+    @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
-    public boolean createActor(@RequestBody Actor resource)
+    @RequestMapping(method = RequestMethod.POST)
+    public ActorDTO createActor(@RequestBody RequestActor requestActor)
     {
-        if (Objects.nonNull(resource))
-        {
-            actorRepo.addActor(resource);
-            return true;
-        }
-        else
-        {
-            throw new NullPointerException("Incorrect data - value: " + resource);
-        }
+        Objects.requireNonNull(requestActor, "Request body cannot be empty");
+
+        return actorService.createActor(
+                requestActor.getFirstNames(),
+                requestActor.getLastName(),
+                requestActor.getImdbRef()
+        );
     }
 
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable( "id" ) int id, @RequestBody Actor actor) {
-//        Preconditions.checkNotNull(actor);
-//        RestPreconditions.checkNotNull(repo.findActorById(actor.getId()));
-//        repo.update(actor);
+    public ActorDTO updateActor(@PathVariable( "id" ) int id, @RequestBody RequestActor requestActor)
+    {
+        Objects.requireNonNull(getActorById(id), "Could not final actor with ID: " + id);
+        Objects.requireNonNull(requestActor, "Request body cannot be empty");
+
+        return actorService.updateActor(
+                id,
+                requestActor.getFirstNames(),
+                requestActor.getLastName(),
+                requestActor.getImdbRef()
+        );
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteActor(@PathVariable("id") int id) {
-        personRepo.removePerson(id, PersonType.ACTOR);
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteActor(@PathVariable("id") int id)
+    {
+        Objects.requireNonNull(getActorById(id), "Could not find actor with ID: " + id);
+
+        actorService.deleteActor(id);
     }
 }
