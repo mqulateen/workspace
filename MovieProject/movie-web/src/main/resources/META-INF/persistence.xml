@@ -6,7 +6,7 @@
         <class>com.mqul.mp.Actor</class>
         <class>com.mqul.mp.Director</class>
         <class>com.mqul.mp.Film</class>
-        <class>com.mqul.mp.LookupFilmPerson</class>
+        <!--<class>com.mqul.mp.LookupFilmPerson</class>-->
         <properties>
             <!--<property name="eclipselink.weaving" value="false"/>-->
             <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />-->

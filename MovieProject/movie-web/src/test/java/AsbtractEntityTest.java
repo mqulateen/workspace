@@ -1,7 +1,10 @@
 import com.mqul.mp.*;
+import com.mqul.mp.repository.ActorRepo;
+import com.mqul.mp.repository.DirectorRepo;
+import com.mqul.mp.repository.PersonRepo;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +16,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class AsbtractEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(ActorEntityTest.class);
@@ -40,7 +44,7 @@ public class AsbtractEntityTest {
         for(String key : REFS)
         {
             final Actor actor = new Actor("a"+key, firstName+key, lastName+key);
-            actorRepo.addActor(actor);
+            actorRepo.createActor(actor);
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed
@@ -63,7 +67,7 @@ public class AsbtractEntityTest {
         for(String key : REFS)
         {
             final Director director = new Director("d"+key, firstName+key, lastName+key);
-            directorRepo.addDirector(director);
+            directorRepo.createDirector(director);
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed

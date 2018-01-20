@@ -16,6 +16,11 @@
             <artifactId>eclipselink</artifactId>
             <version>2.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.mqul.mp</groupId>
+            <artifactId>movie-core-dto</artifactId>
+            <version>1.0</version>
+        </dependency>
 
 
     </dependencies>

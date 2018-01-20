@@ -33,11 +33,6 @@
         </dependency>
         <dependency>
             <groupId>com.mqul.mp</groupId>
-            <artifactId>movie-core-model</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mqul.mp</groupId>
             <artifactId>movie-core-impl</artifactId>
             <version>1.0</version>
         </dependency>

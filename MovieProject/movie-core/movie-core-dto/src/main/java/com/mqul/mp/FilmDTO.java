@@ -1,6 +1,7 @@
 package com.mqul.mp;
 
 import java.util.List;
+import java.util.Objects;
 
 public class FilmDTO
 {
@@ -61,5 +62,11 @@ public class FilmDTO
     public List<ActorDTO> getActors()
     {
         return actors;
+    }
+
+    /**   ensure the name/id values exist   **/
+    public boolean isValid(){
+        return !(Objects.isNull(id))
+               &&!(Objects.isNull(filmName) || filmName.isEmpty());
     }
 }

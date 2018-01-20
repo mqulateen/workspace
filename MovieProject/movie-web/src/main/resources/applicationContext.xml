@@ -32,10 +32,10 @@
         </property>
     </bean>
 
-    <bean class="com.mqul.mp.PersonRepo" id="personRepo"/>
-    <bean class="com.mqul.mp.FilmRepo" id="filmRepo"/>
-    <bean class="com.mqul.mp.ActorRepo" id="actorRepo"/>
-    <bean class="com.mqul.mp.DirectorRepo" id="directorRepo"/>
+    <bean class="com.mqul.mp.repository.PersonRepo" id="personRepo"/>
+    <bean class="com.mqul.mp.repository.FilmRepo" id="filmRepo"/>
+    <bean class="com.mqul.mp.repository.ActorRepo" id="actorRepo"/>
+    <bean class="com.mqul.mp.repository.DirectorRepo" id="directorRepo"/>
 
     <!-- Look up the database in JNDI -->
     <!--<jee:jndi-lookup jndi-name="java:jboss/datasources/ExampleDS" id="dataSource"-->

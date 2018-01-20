@@ -3,31 +3,26 @@ package com.mqul.mp;
 public class ActorDTO
 {
     private int id;
-    private String imdbRef;
     private String firstNames;
     private String lastName;
+    private String imdbRef;
 
     public ActorDTO()
     {
         //
     }
 
-    public ActorDTO(int id, String imdbRef, String firstNames, String lastName)
+    public ActorDTO(int id, String firstNames, String lastName, String imdbRef)
     {
         this.id = id;
-        this.imdbRef = imdbRef;
         this.firstNames = firstNames;
         this.lastName = lastName;
+        this.imdbRef = imdbRef;
     }
 
     public int getId()
     {
         return id;
-    }
-
-    public String getImdbRef()
-    {
-        return imdbRef;
     }
 
     public String getFirstNames()
@@ -38,5 +33,10 @@ public class ActorDTO
     public String getLastName()
     {
         return lastName;
+    }
+
+    public String getImdbRef()
+    {
+        return imdbRef;
     }
 }

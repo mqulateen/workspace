@@ -33,10 +33,12 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     @Column(name = "film_year")
     private int filmYear;
 
-    @Transient
+    @JoinTable
+    @OneToMany
     private List<Director> directors;
 
-    @Transient
+    @JoinTable
+    @OneToMany
     private List<Actor> actors;
     
     public Film(){
@@ -125,14 +127,6 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     {
         this.actors = actors;
     }
-
-    /**   ensure the name/id values exist   **/
-//    public boolean isValid(){
-//        return !(Objects.isNull(filmId) || filmId.isEmpty())
-//               &&!(Objects.isNull(filmName) || filmName.isEmpty());
-//    }
-
-
 
     public FilmDTO transferToDTO()
     {

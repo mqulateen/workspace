@@ -23,9 +23,9 @@ public class Actor extends Person implements Serializable, TransferableObject<Ac
         //
     }
 
-    public Actor(String imdbRef, String firstNames, String lastName)
+    public Actor(String firstNames, String lastName, String imdbRef)
     {
-        super(imdbRef, firstNames, lastName);
+        super(firstNames, lastName, imdbRef);
     }
 
     public int getID()
@@ -35,6 +35,6 @@ public class Actor extends Person implements Serializable, TransferableObject<Ac
 
     public ActorDTO transferToDTO()
     {
-        return new ActorDTO(id, super.getImdbRef(), super.getFirstNames(), super.getLastName());
+        return new ActorDTO(id, super.getFirstNames(), super.getLastName(), super.getImdbRef());
     }
 }

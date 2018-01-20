@@ -1,6 +1,8 @@
 import com.mqul.mp.*;
+import com.mqul.mp.repository.FilmRepo;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@Ignore
 public class FilmEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(FilmEntityTest.class);

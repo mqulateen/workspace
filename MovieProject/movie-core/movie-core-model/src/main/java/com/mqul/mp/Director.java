@@ -35,6 +35,6 @@ public class Director extends Person implements Serializable, TransferableObject
 
     public DirectorDTO transferToDTO()
     {
-        return new DirectorDTO(id, super.getImdbRef(), super.getFirstNames(), super.getLastName());
+        return new DirectorDTO(id, super.getFirstNames(), super.getLastName(), super.getImdbRef());
     }
 }
