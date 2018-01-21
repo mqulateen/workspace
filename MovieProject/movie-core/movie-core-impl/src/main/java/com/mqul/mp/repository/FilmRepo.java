@@ -1,9 +1,6 @@
 package com.mqul.mp.repository;
 
-import com.mqul.mp.Actor;
-import com.mqul.mp.Director;
-import com.mqul.mp.Film;
-import com.mqul.mp.QueryBuilder;
+import com.mqul.mp.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -32,86 +29,77 @@ public class FilmRepo
 
     public Film findFilmByRef(String filmImdbRef)
     {
+        Query query = entityManager.createQuery("SELECT f FROM Film f WHERE f.imdbRef = :imdbRef");
+        query.setParameter("imdbRef", filmImdbRef);
+
         try
         {
-            return Film.class.cast(
-                    entityManager.createQuery("SELECT f FROM Film f WHERE f.imdbRef = :imdbRef")
-                            .setParameter("imdbRef", filmImdbRef).getSingleResult()
-            );
+            return (Film) query.getSingleResult();
         }
-        catch (NoResultException nre)
+        catch (NoResultException ex)
         {
-            log.error("Could not find Film with the given imdb ref [{}]", filmImdbRef);
+            log.error("Could not find Film with the given imdbRef [{}]", filmImdbRef);
             return null;
         }
     }
 
-    public List getAllFilms()
+    public List<Film> getAllFilms()
     {
         Query q = entityManager.createQuery("SELECT f FROM Film f");
 
         return q.getResultList();
     }
 
-    public List<Actor> getActorsByFilmId(int filmId)
+    public void createFilm(Film film)
     {
-        QueryBuilder qb = new QueryBuilder("SELECT a FROM Actor a, LookupFilmActors lp, Film f");
-        String query = qb.where("a.id", "lp.actorId")
-                .where("f.id", "lp.filmId")
-                .where("f.id", ":filmId")
-                .build();
-
-        Query q = entityManager.createQuery(query);
-        q.setParameter("filmId", filmId);
-
-        return q.getResultList();
-    }
-    
-    @SuppressWarnings("unchecked")
-    public List<Director> getDirectorsByFilmId(int filmId)
-    {
-        QueryBuilder qb = new QueryBuilder("SELECT a FROM Director a, LookupFilmDirectors lp, Film f");
-        String query = qb.where("a.id", "lp.directorId")
-                .where("f.id", "lp.filmId")
-                .where("f.id", ":filmId")
-                .build();
-
-        Query q = entityManager.createQuery(query);
-        q.setParameter("filmId", filmId);
-
-        return q.getResultList();
-    }
-
-    public void addNewFilm(Film film)
-    {
-        Film tmpFilm = findFilmByRef(film.getImdbRef());
-
-        if(tmpFilm != null)
-        {
-            throw new IllegalArgumentException(
-                    String.format("Film with the id [%s] already exists", film.getId())
-            );
-        }
-        else
-        {
-            persist(film);
-        }
-    }
-
-    public void removeFilm(int filmId)
-    {
-        Film film = findFilmById(filmId);
-
-        if(film == null)
-            throw new IllegalArgumentException(
-                    String.format("Could not find a Film with the id [%d]", filmId)
-            );
-
-        entityManager.remove(film);
+        persist(film);
     }
 
     public void persist(Film film)
     {
         entityManager.persist(film);
+    }
+
+    public void deleteFilm(int filmId)
+    {
+        Film film = findFilmById(filmId);
+
+        remove(film);
+    }
+
+    private void remove(Film film)
+    {
+        entityManager.remove(film);
+    }
+
+    public Film updateFilm(int id, String filmName, Integer filmYear, String imdbRef, Double imdbRating)
+    {
+        QueryBuilder qb = new QueryBuilder("UPDATE Film f");
+
+        if(filmName != null)
+        {
+            qb.set("f.filmName", filmName);
+        }
+
+        if(filmYear != null)
+        {
+            qb.set("f.filmYear", filmYear);
+        }
+
+        if(imdbRef != null)
+        {
+            qb.set("f.imdbRef", imdbRef);
+        }
+
+        if(imdbRating != null)
+        {
+            qb.set("f.imdbRating", imdbRating);
+        }
+
+        qb.where("a.id", id);
+
+        entityManager.createQuery(qb.build()).executeUpdate();
+
+        return findFilmById(id);
     }
 }

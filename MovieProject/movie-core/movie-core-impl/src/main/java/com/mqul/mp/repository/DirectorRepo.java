@@ -89,7 +89,7 @@ public class DirectorRepo
         remove(director);
     }
 
-    public void remove(Director director)
+    private void remove(Director director)
     {
         entityManager.remove(director);
     }

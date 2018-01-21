@@ -12,22 +12,17 @@ public class DirectorDTO
         //
     }
 
-    public DirectorDTO(int id, String imdbRef, String firstNames, String lastName)
+    public DirectorDTO(int id, String firstNames, String lastName, String imdbRef)
     {
         this.id = id;
-        this.imdbRef = imdbRef;
         this.firstNames = firstNames;
         this.lastName = lastName;
+        this.imdbRef = imdbRef;
     }
 
     public int getId()
     {
         return id;
-    }
-
-    public String getImdbRef()
-    {
-        return imdbRef;
     }
 
     public String getFirstNames()
@@ -38,5 +33,10 @@ public class DirectorDTO
     public String getLastName()
     {
         return lastName;
+    }
+
+    public String getImdbRef()
+    {
+        return imdbRef;
     }
 }

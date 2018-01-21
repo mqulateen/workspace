@@ -2,8 +2,8 @@ CREATE DATABASE movie;
 
 --using default SCHEMA - 'public'
 
-DROP TABLE Films;
-CREATE TABLE Films(
+DROP TABLE IF EXISTS films;
+CREATE TABLE films(
 	film_id SERIAL NOT NULL,
 	film_name varchar(100) NOT NULL,
 	film_year NUMERIC(4)  NOT NULL,
@@ -11,8 +11,8 @@ CREATE TABLE Films(
 	PRIMARY KEY(film_id)
 );
 
-DROP TABLE Directors;
-CREATE TABLE Directors(
+DROP TABLE IF EXISTS directors;
+CREATE TABLE directors(
 	director_id SERIAL NOT NULL,
 	firstNames varchar(100),
 	lastName varchar(100) NOT NULL,
@@ -20,8 +20,8 @@ CREATE TABLE Directors(
 	PRIMARY KEY(director_id)
 );
 
-DROP TABLE Actors;
-CREATE TABLE Actors(
+DROP TABLE IF EXISTS actors;
+CREATE TABLE actors(
 	actor_id SERIAL NOT NULL,
 	firstNames varchar(100),
 	lastName varchar(100) NOT NULL,
@@ -29,38 +29,51 @@ CREATE TABLE Actors(
 	PRIMARY KEY(actor_id)
 );
 
-DROP TABLE Lookup_Film_Person;
-CREATE TABLE Lookup_Film_Person(
+DROP TABLE IF EXISTS films_actors;
+CREATE TABLE films_actors(
 	film_id INT NOT NULL,
-	actor_id INT,
-	director_id INT,
+	actor_id INT NOT NULL,
 	FOREIGN KEY(film_id)
-	  REFERENCES Films (film_id),
+	  REFERENCES films (film_id),
 	FOREIGN KEY(actor_id)
-	 REFERENCES Actors (actor_id),
+	 REFERENCES actors (actor_id)
+);
+
+DROP TABLE IF EXISTS films_directors;
+CREATE TABLE films_directors(
+	film_id INT NOT NULL,
+	director_id INT NOT NULL,
+	FOREIGN KEY(film_id)
+	  REFERENCES films (film_id),
 	FOREIGN KEY(director_id)
-	 REFERENCES Directors (director_id)
+	 REFERENCES directors (director_id)
 );
 
 --the line below makes a change to table 'film' by adding a column 'imdb_rating'
-ALTER TABLE Films ADD imdb_rating NUMERIC(3,1) NOT NULL;
+ALTER TABLE films ADD imdb_rating NUMERIC(3,1) NOT NULL;
 
 --copy in everything below AFTER you execute eveything above
 --since the film_id is auto increment we dont need to explictly add a value for it
-INSERT into Films (film_name, film_year, imdb_ref, imdb_rating)
+INSERT into films (film_name, film_year, imdb_ref, imdb_rating)
 VALUES ('Spider-Man', 2002, '0145487', 7.3),
 	   ('Batman v Superman: Dawn of Justice', 2016, '2975590', 7.0),
 	   ('Daredevil', 2003, '3322312', 8.8);
 
-INSERT into Actors (firstNames, lastName, imdb_ref)
+INSERT into actors (firstNames, lastName, imdb_ref)
 VALUES ('Tobey', 'Maguire', '0001497'),
        ('Henry', 'Cavill', '0147147'),
 	   ('Ben', 'Affleck', '0000255');
 
-INSERT into Directors (firstNames, lastName, imdb_ref)
+INSERT into directors (firstNames, lastName, imdb_ref)
 VALUES ('Sam', 'Raimi', '0000600'),
 	   ('Zack', 'Snyder', '0811583'),
 	   ('Mark Steven', 'Johnson', '0425756');
+
+-------
+-------
+---BELOW STUFF CURRENTLY UNUSED AND MAY NOT WORK - CASING WAS CHANGED
+-------
+-------
 
 --mapping actors to movies
 INSERT into Lookup_Film_Person (film_id, actor_id, director_id)

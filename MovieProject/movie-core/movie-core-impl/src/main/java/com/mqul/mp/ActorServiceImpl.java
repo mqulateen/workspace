@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.isNull;
 
@@ -44,7 +45,13 @@ public class ActorServiceImpl implements ActorService
     public ActorDTO getActorByImdbRef(String imdbRef)
     {
         final Actor actor = actorRepo.findActorByRef(imdbRef);
-        return (actor != null) ? actor.transferToDTO() : null;
+
+        if(Objects.isNull(actor))
+        {
+            throw new IllegalArgumentException("Could not find Actor with imdbRef: " + imdbRef);
+        }
+
+        return actor.transferToDTO();
     }
 
     @Override
@@ -52,13 +59,7 @@ public class ActorServiceImpl implements ActorService
     {
         final List<Actor> actors = actorRepo.getAllActors();
 
-        final List<ActorDTO> actorDTOS = new ArrayList<>(actors.size());
-        for(Actor actor : actors)
-        {
-            actorDTOS.add(actor.transferToDTO());
-        }
-
-        return actorDTOS;
+        return actors.stream().map(Actor::transferToDTO).collect(Collectors.toList());
     }
 
     @Override

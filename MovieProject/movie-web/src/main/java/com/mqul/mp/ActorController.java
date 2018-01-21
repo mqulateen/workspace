@@ -57,7 +57,7 @@ public class ActorController
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ActorDTO updateActor(@PathVariable( "id" ) int id, @RequestBody RequestActor requestActor)
     {
-        Objects.requireNonNull(getActorById(id), "Could not final actor with ID: " + id);
+        Objects.requireNonNull(getActorById(id), "Could not find actor with ID: " + id);
         Objects.requireNonNull(requestActor, "Request body cannot be empty");
 
         return actorService.updateActor(

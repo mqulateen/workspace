@@ -2,6 +2,9 @@ package com.mqul.mp;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -17,6 +20,9 @@ public class Actor extends Person implements Serializable, TransferableObject<Ac
     @Column(name = "actor_id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
+    @ManyToMany(mappedBy = "actors")
+    private List<Film> films;
 
     public Actor()
     {
@@ -36,5 +42,20 @@ public class Actor extends Person implements Serializable, TransferableObject<Ac
     public ActorDTO transferToDTO()
     {
         return new ActorDTO(id, super.getFirstNames(), super.getLastName(), super.getImdbRef());
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Actor actor = (Actor) o;
+        return Objects.equals(getImdbRef(), actor.getImdbRef());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
     }
 }

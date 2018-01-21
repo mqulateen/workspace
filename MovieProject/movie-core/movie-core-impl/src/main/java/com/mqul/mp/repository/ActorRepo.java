@@ -89,7 +89,7 @@ public class ActorRepo
         remove(actor);
     }
 
-    public void remove(Actor actor)
+    private void remove(Actor actor)
     {
         entityManager.remove(actor);
     }

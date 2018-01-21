@@ -5,6 +5,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -33,34 +34,31 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     @Column(name = "film_year")
     private int filmYear;
 
-    @JoinTable
-    @OneToMany
+    @JoinTable(name = "films_directors",
+            joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "director_id", referencedColumnName = "director_id")
+    )
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Director> directors;
 
-    @JoinTable
-    @OneToMany
+    @JoinTable(name = "films_actors",
+            joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id")
+    )
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Actor> actors;
     
-    public Film(){
-        directors = new ArrayList<Director>();
-        actors = new ArrayList<Actor>();
-    }
-    
-    public Film(String imdbRef, String filmName, double imdbRating, int filmYear)
+    public Film()
     {
-        this.imdbRef = imdbRef;
-        this.filmName = filmName;
-        this.imdbRating = imdbRating;
-        this.filmYear = filmYear;
-        directors = new ArrayList<Director>();
-        actors = new ArrayList<Actor>();
+        //
     }
     
-    public Film(String imdbRef, String filmName, double imdbRating,
-                List<Director> directors, List<Actor> actors, int filmYear){
-        this(imdbRef, filmName, imdbRating, filmYear);
-        this.directors = directors;
-        this.actors = actors;
+    public Film(String filmName, int filmYear, String imdbRef, double imdbRating)
+    {
+        this.filmName = filmName;
+        this.filmYear = filmYear;
+        this.imdbRef = imdbRef;
+        this.imdbRating = imdbRating;
     }
 
     public int getId()
@@ -133,5 +131,21 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
         return new FilmDTO(id, filmName, imdbRef, imdbRating, filmYear,
                             TransferableUtils.transferList(directors),
                             TransferableUtils.transferList(actors));
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Film film = (Film) o;
+        return Objects.equals(filmName, film.filmName) &&
+                Objects.equals(imdbRef, film.imdbRef);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(filmName, imdbRef);
     }
 }

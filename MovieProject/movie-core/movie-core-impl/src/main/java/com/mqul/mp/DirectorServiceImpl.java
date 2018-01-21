@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.isNull;
 
@@ -44,7 +45,13 @@ public class DirectorServiceImpl implements DirectorService
     public DirectorDTO getDirectorByImdbRef(String imdbRef)
     {
         final Director director = directorRepo.findDirectorByRef(imdbRef);
-        return (director != null) ? director.transferToDTO() : null;
+
+        if(Objects.isNull(director))
+        {
+            throw new IllegalArgumentException("Could not find Director with imdbRef: " + imdbRef);
+        }
+
+        return director.transferToDTO();
     }
 
     @Override
@@ -52,13 +59,7 @@ public class DirectorServiceImpl implements DirectorService
     {
         final List<Director> directors = directorRepo.getAllDirectors();
 
-        final List<DirectorDTO> directorDTOS = new ArrayList<>(directors.size());
-        for(Director director : directors)
-        {
-            directorDTOS.add(director.transferToDTO());
-        }
-
-        return directorDTOS;
+        return directors.stream().map(Director::transferToDTO).collect(Collectors.toList());
     }
 
     @Override

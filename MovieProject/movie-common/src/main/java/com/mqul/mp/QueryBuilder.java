@@ -65,6 +65,21 @@ public class QueryBuilder {
         return this;
     }
 
+    public QueryBuilder set(String l, Number r)
+    {
+        if(firstSet)
+        {
+            sb.append(String.format(" SET %s = %d", l, r));
+            firstSet = false;
+        }
+        else
+        {
+            sb.append(String.format(", %s = %d", l, r));
+        }
+
+        return this;
+    }
+
     public String build()
     {
         return sb.toString();

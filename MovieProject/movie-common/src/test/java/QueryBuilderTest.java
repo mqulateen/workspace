@@ -16,9 +16,9 @@ public class QueryBuilderTest {
         final String qbQuery = qb.build();
 
         final String sqlQuery = "SELECT * FROM test " +
-                "WHERE test_column = value1 " +
-                "AND other_column = value2 " +
-                "AND final_column = value3";
+                "WHERE test_column = 'value1' " +
+                "AND other_column = 'value2' " +
+                "AND final_column = 'value3'";
 
         assertEquals(qbQuery, sqlQuery);
     }

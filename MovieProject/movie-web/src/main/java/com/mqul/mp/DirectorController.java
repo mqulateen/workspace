@@ -57,7 +57,7 @@ public class DirectorController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public DirectorDTO updateDirector(@PathVariable( "id" ) int id, @RequestBody RequestDirector requestDirector)
     {
-        Objects.requireNonNull(getDirectorById(id), "Could not final director with ID: " + id);
+        Objects.requireNonNull(getDirectorById(id), "Could not find director with ID: " + id);
         Objects.requireNonNull(requestDirector, "Request body cannot be empty");
 
         return directorService.updateDirector(
