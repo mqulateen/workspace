@@ -2,10 +2,13 @@ package com.mqul.mp;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Fetch;
 import java.io.Serializable;
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -35,17 +38,17 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     private int filmYear;
 
     @JoinTable(name = "films_directors",
-            joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
-            inverseJoinColumns = @JoinColumn(name = "director_id", referencedColumnName = "director_id")
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "director_id")
     )
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch=FetchType.LAZY)
     private List<Director> directors;
 
     @JoinTable(name = "films_actors",
-            joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
-            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id")
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
     )
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch=FetchType.LAZY)
     private List<Actor> actors;
     
     public Film()
@@ -111,6 +114,16 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
         return directors;
     }
 
+    public void addDirector(Director director)
+    {
+        this.directors.add(director);
+    }
+
+    public void removeDirector(Director director)
+    {
+        this.directors.remove(director);
+    }
+
     public void setDirectors(List<Director> directors)
     {
         this.directors = directors;
@@ -119,6 +132,16 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     public List<Actor> getActors()
     {
         return actors;
+    }
+
+    public void addActor(Actor actor)
+    {
+        this.actors.add(actor);
+    }
+
+    public void removeActor(Actor actor)
+    {
+        this.actors.remove(actor);
     }
 
     public void setActors(List<Actor> actors)

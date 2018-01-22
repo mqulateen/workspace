@@ -21,9 +21,6 @@ public class Director extends Person implements Serializable, TransferableObject
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany(mappedBy = "directors")
-    private List<Film> films;
-
     public Director()
     {
         //

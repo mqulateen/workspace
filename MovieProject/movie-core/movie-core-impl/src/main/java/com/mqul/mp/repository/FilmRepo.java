@@ -27,6 +27,11 @@ public class FilmRepo
         return entityManager.find(Film.class, id);
     }
 
+    public Film saveUpdate(Film film)
+    {
+        return entityManager.merge(film);
+    }
+
     public Film findFilmByRef(String filmImdbRef)
     {
         Query query = entityManager.createQuery("SELECT f FROM Film f WHERE f.imdbRef = :imdbRef");

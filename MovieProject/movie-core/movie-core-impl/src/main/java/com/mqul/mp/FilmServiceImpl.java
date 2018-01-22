@@ -110,7 +110,9 @@ public class FilmServiceImpl implements FilmService
             throw new IllegalArgumentException("Could not find Actor with with ID: " + actorId);
         }
 
-        film.getActors().add(actor);
+        film.addActor(actor);
+
+        filmRepo.saveUpdate(film);
 
         return film.transferToDTO();
     }
@@ -131,7 +133,9 @@ public class FilmServiceImpl implements FilmService
             throw new IllegalArgumentException("Could not find Director with with ID: " + directorId);
         }
 
-        film.getDirectors().add(director);
+        film.addDirector(director);
+
+        filmRepo.saveUpdate(film);
 
         return film.transferToDTO();
     }
@@ -164,15 +168,17 @@ public class FilmServiceImpl implements FilmService
             throw new IllegalArgumentException("Could not find Actor with with ID: " + actorId);
         }
 
-        final Director filmsDirector =
-                film.getDirectors().stream().filter(d -> d.getID() == actorId).findFirst().orElse(null);
+        final Actor filmsActor =
+                film.getActors().stream().filter(a -> a.getID() == actorId).findFirst().orElse(null);
 
-        if(filmsDirector == null)
+        if(filmsActor == null)
         {
             throw new IllegalArgumentException(String.format("Actor [%s] is not associated with Film [%s]", actorId, filmId));
         }
 
-        film.getActors().remove(actor);
+        film.removeActor(actor);
+
+        filmRepo.saveUpdate(film);
 
         return film.transferToDTO();
     }
@@ -201,7 +207,9 @@ public class FilmServiceImpl implements FilmService
             throw new IllegalArgumentException(String.format("Director [%s] is not associated with Film [%s]", directorId, filmId));
         }
 
-        film.getDirectors().remove(director);
+        film.removeDirector(director);
+
+        filmRepo.saveUpdate(film);
 
         return film.transferToDTO();
     }

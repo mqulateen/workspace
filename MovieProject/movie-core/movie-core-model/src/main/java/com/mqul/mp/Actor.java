@@ -21,9 +21,6 @@ public class Actor extends Person implements Serializable, TransferableObject<Ac
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany(mappedBy = "actors")
-    private List<Film> films;
-
     public Actor()
     {
         //
