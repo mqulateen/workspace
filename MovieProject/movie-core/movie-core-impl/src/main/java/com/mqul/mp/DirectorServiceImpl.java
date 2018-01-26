@@ -57,19 +57,19 @@ public class DirectorServiceImpl extends AbstractPersonService<Director> impleme
 
     //--CONCRETE METHODS FOR ABSTRACT SIGNATURES----------------------------
     @Override
-    public Director getPersonByImdbRef(String imdbRef)
+    protected Director getPersonByImdbRef(String imdbRef)
     {
         return directorRepo.findDirectorByRef(imdbRef);
     }
 
     @Override
-    public Director getPersonById(int id)
+    protected Director getPersonById(int id)
     {
         return directorRepo.findDirectorById(id);
     }
 
     @Override
-    public Director createPerson(String firstName, String lastName, String imdbRef)
+    protected Director createPerson(String firstName, String lastName, String imdbRef)
     {
         final Director director = new Director(firstName, lastName, imdbRef);
         directorRepo.createDirector(director);

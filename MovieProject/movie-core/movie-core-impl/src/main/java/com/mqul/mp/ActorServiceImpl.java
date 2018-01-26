@@ -57,19 +57,19 @@ public class ActorServiceImpl extends AbstractPersonService<Actor> implements Ac
 
     //--CONCRETE METHODS FOR ABSTRACT SIGNATURES----------------------------
     @Override
-    public Actor getPersonByImdbRef(String imdbRef)
+    protected Actor getPersonByImdbRef(String imdbRef)
     {
         return actorRepo.findActorByRef(imdbRef);
     }
 
     @Override
-    public Actor getPersonById(int id)
+    protected Actor getPersonById(int id)
     {
         return actorRepo.findActorById(id);
     }
 
     @Override
-    public Actor createPerson(String firstName, String lastName, String imdbRef)
+    protected Actor createPerson(String firstName, String lastName, String imdbRef)
     {
         final Actor actor = new Actor(firstName, lastName, imdbRef);
         actorRepo.createActor(actor);

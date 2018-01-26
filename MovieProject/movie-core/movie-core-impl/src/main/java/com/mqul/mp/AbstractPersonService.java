@@ -45,7 +45,7 @@ public abstract class AbstractPersonService <T extends Person>
         return person;
     }
 
-    public abstract T getPersonByImdbRef(String imdbRef);
-    public abstract T getPersonById(int id);
-    public abstract T createPerson(String firstName, String lastName, String imdbRef);
+    protected abstract T getPersonByImdbRef(String imdbRef);
+    protected abstract T getPersonById(int id);
+    protected abstract T createPerson(String firstName, String lastName, String imdbRef);
 }
