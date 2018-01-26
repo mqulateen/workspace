@@ -1,9 +1,6 @@
 package com.mqul.mp.service;
 
-import com.mqul.mp.Actor;
-import com.mqul.mp.ActorDTO;
-import com.mqul.mp.DirectorDTO;
-import com.mqul.mp.FilmDTO;
+import com.mqul.mp.*;
 
 import java.util.List;
 
@@ -72,58 +69,23 @@ public interface FilmService
     FilmDTO updateFilm(int id, String filmName, Integer filmYear, String imdbRef, Double imdbRating);
 
     /**
-     * Add an existing actor to an existing film, will fail either are not present/found
+     * Add an existing actor/director to an existing film, will fail if either are not present/found
      *
      * @param filmId
-     * @param actorId
+     * @param personId
+     * @param type
      * @return
      */
-    FilmDTO addActorToFilm(int filmId, int actorId);
+    FilmDTO addPersonToFilm(int filmId, int personId, PersonType type);
 
     /**
-     * Add an existing director to an existing film, will fail either are not present/found
+     * Remove association between film and actor/director
      *
      * @param filmId
-     * @param directorId
+     * @param type
      * @return
      */
-    FilmDTO addDirectorToFilm(int filmId, int directorId);
-
-    /**
-     * Add existing actors to an existing film in bulk, will fail either are not present/found
-     *
-     * @param filmId
-     * @param actorIds
-     * @return
-     */
-    FilmDTO addActorsToFilm(int filmId, List<Integer> actorIds);
-
-    /**
-     * Add an existing director to an existing film, will fail either are not present/found
-     *
-     * @param filmId
-     * @param directorIds
-     * @return
-     */
-    FilmDTO addDirectorsToFilm(int filmId, List<Integer> directorIds);
-
-    /**
-     * Remove association between film and actor
-     *
-     * @param filmId
-     * @param actorId
-     * @return
-     */
-    FilmDTO removeActorFromFilm(int filmId, int actorId);
-
-    /**
-     * Remove association between film and director
-     *
-     * @param filmId
-     * @param directorId
-     * @return
-     */
-    FilmDTO removeDirectorFromFilm(int filmId, int directorId);
+    FilmDTO removePersonFromFilm(int filmId, int personId, PersonType type);
 
     /**
      * Remove a film by its ID

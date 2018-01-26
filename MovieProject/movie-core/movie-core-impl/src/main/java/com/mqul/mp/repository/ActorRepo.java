@@ -51,32 +51,6 @@ public class ActorRepo
         return query.getResultList();
     }
 
-    public Actor updateActor(int id, String firstName, String lastName, String imdbRef)
-    {
-        QueryBuilder qb = new QueryBuilder("UPDATE Actor a");
-
-        if(firstName != null)
-        {
-            qb.set("a.firstNames", firstName);
-        }
-
-        if(lastName != null)
-        {
-            qb.set("a.lastName", lastName);
-        }
-
-        if(imdbRef != null)
-        {
-            qb.set("a.imdbRef", imdbRef);
-        }
-
-        qb.where("a.id", id);
-
-        entityManager.createQuery(qb.build()).executeUpdate();
-
-        return findActorById(id);
-    }
-
     public void createActor(Actor actor)
     {
         entityManager.persist(actor);

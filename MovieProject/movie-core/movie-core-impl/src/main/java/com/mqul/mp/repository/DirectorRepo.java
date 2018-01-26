@@ -51,32 +51,6 @@ public class DirectorRepo
         return query.getResultList();
     }
 
-    public Director updateDirector(int id, String firstName, String lastName, String imdbRef)
-    {
-        QueryBuilder qb = new QueryBuilder("UPDATE Director d");
-
-        if(firstName != null)
-        {
-            qb.set("d.firstNames", firstName);
-        }
-
-        if(lastName != null)
-        {
-            qb.set("d.lastName", lastName);
-        }
-
-        if(imdbRef != null)
-        {
-            qb.set("d.imdbRef", imdbRef);
-        }
-
-        qb.where("d.id", id);
-
-        entityManager.createQuery(qb.build()).executeUpdate();
-
-        return findDirectorById(id);
-    }
-
     public void createDirector(Director director)
     {
         entityManager.persist(director);

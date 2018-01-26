@@ -4,16 +4,13 @@ import com.mqul.mp.repository.DirectorRepo;
 import com.mqul.mp.service.DirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static java.util.Objects.isNull;
-
 @Service
-public class DirectorServiceImpl implements DirectorService
+public class DirectorServiceImpl extends AbstractPersonService<Director> implements DirectorService
 {
     @Autowired
     private DirectorRepo directorRepo;
@@ -21,37 +18,19 @@ public class DirectorServiceImpl implements DirectorService
     @Override
     public DirectorDTO createDirector(String firstName, String lastName, String imdbRef)
     {
-        if(Objects.nonNull(getDirectorByImdbRef(imdbRef)))
-        {
-            final String errorMessage = String.format("Director with imdbRef [%s] already exists", imdbRef);
-            throw new IllegalArgumentException(errorMessage);
-        }
-
-        final Director director = new Director(firstName, lastName, imdbRef);
-        directorRepo.createDirector(director);
-
-        final DirectorDTO directorDTO = directorRepo.findDirectorById(director.getID()).transferToDTO();
-
-        return directorDTO;
+        return create(firstName, lastName, imdbRef).transferToDTO();
     }
 
     @Override
     public DirectorDTO getDirectorById(int id)
     {
-        return directorRepo.findDirectorById(id).transferToDTO();
+        return getPersonById(id).transferToDTO();
     }
 
     @Override
     public DirectorDTO getDirectorByImdbRef(String imdbRef)
     {
-        final Director director = directorRepo.findDirectorByRef(imdbRef);
-
-        if(Objects.isNull(director))
-        {
-            throw new IllegalArgumentException("Could not find Director with imdbRef: " + imdbRef);
-        }
-
-        return director.transferToDTO();
+        return readByRef(imdbRef).transferToDTO();
     }
 
     @Override
@@ -63,17 +42,38 @@ public class DirectorServiceImpl implements DirectorService
     }
 
     @Override
+    @Transactional
     public DirectorDTO updateDirector(int id, String firstName, String lastName, String imdbRef)
     {
-        if(isNull(firstName) && isNull(lastName) && isNull(imdbRef))
-            throw new IllegalArgumentException("Atleast one updatable field must be present");
-
-        return directorRepo.updateDirector(id, firstName, lastName, imdbRef).transferToDTO();
+        return update(id, firstName, lastName, imdbRef).transferToDTO();
     }
 
     @Override
     public void deleteDirector(int id)
     {
         directorRepo.deleteDirector(id);
+    }
+
+
+    //--CONCRETE METHODS FOR ABSTRACT SIGNATURES----------------------------
+    @Override
+    public Director getPersonByImdbRef(String imdbRef)
+    {
+        return directorRepo.findDirectorByRef(imdbRef);
+    }
+
+    @Override
+    public Director getPersonById(int id)
+    {
+        return directorRepo.findDirectorById(id);
+    }
+
+    @Override
+    public Director createPerson(String firstName, String lastName, String imdbRef)
+    {
+        final Director director = new Director(firstName, lastName, imdbRef);
+        directorRepo.createDirector(director);
+
+        return directorRepo.findDirectorByRef(imdbRef);
     }
 }

@@ -97,27 +97,27 @@ public class FilmController
     @RequestMapping(value = "/{id}/actor/{actorId}", method = RequestMethod.PUT)
     public FilmDTO addActorToFilm(@PathVariable(name = "id") int id, @PathVariable(name = "actorId") int actorId)
     {
-        return filmService.addActorToFilm(id, actorId);
+        return filmService.addPersonToFilm(id, actorId, PersonType.ACTOR);
     }
 
     @ResponseBody
     @RequestMapping(value = "/{id}/director/{directorId}", method = RequestMethod.PUT)
     public FilmDTO addDirectorToFilm(@PathVariable(name = "id") int id, @PathVariable(name = "directorId") int directorId)
     {
-        return filmService.addDirectorToFilm(id, directorId);
+        return filmService.addPersonToFilm(id, directorId, PersonType.DIRECTOR);
     }
 
     @ResponseBody
     @RequestMapping(value = "/{id}/actor/{actorId}", method = RequestMethod.DELETE)
     public FilmDTO removeActorToFilm(@PathVariable(name = "id") int id, @PathVariable(name = "actorId") int actorId)
     {
-        return filmService.removeActorFromFilm(id, actorId);
+        return filmService.removePersonFromFilm(id, actorId, PersonType.ACTOR);
     }
 
     @ResponseBody
     @RequestMapping(value = "/{id}/director/{directorId}", method = RequestMethod.DELETE)
     public FilmDTO removeDirectorToFilm(@PathVariable(name = "id") int id, @PathVariable(name = "directorId") int directorId)
     {
-        return filmService.removeDirectorFromFilm(id, directorId);
+        return filmService.removePersonFromFilm(id, directorId, PersonType.DIRECTOR);
     }
 }

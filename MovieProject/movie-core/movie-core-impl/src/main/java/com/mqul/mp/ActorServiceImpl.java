@@ -4,16 +4,13 @@ import com.mqul.mp.repository.ActorRepo;
 import com.mqul.mp.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static java.util.Objects.isNull;
-
 @Service
-public class ActorServiceImpl implements ActorService
+public class ActorServiceImpl extends AbstractPersonService<Actor> implements ActorService
 {
     @Autowired
     private ActorRepo actorRepo;
@@ -21,37 +18,19 @@ public class ActorServiceImpl implements ActorService
     @Override
     public ActorDTO createActor(String firstName, String lastName, String imdbRef)
     {
-        if(Objects.nonNull(getActorByImdbRef(imdbRef)))
-        {
-            final String errorMessage = String.format("Actor with imdbRef [%s] already exists", imdbRef);
-            throw new IllegalArgumentException(errorMessage);
-        }
-
-        final Actor actor = new Actor(firstName, lastName, imdbRef);
-        actorRepo.createActor(actor);
-
-        final ActorDTO actorDTO = actorRepo.findActorById(actor.getID()).transferToDTO();
-
-        return actorDTO;
+        return create(firstName, lastName, imdbRef).transferToDTO();
     }
 
     @Override
     public ActorDTO getActorById(int id)
     {
-        return actorRepo.findActorById(id).transferToDTO();
+        return getPersonById(id).transferToDTO();
     }
 
     @Override
     public ActorDTO getActorByImdbRef(String imdbRef)
     {
-        final Actor actor = actorRepo.findActorByRef(imdbRef);
-
-        if(Objects.isNull(actor))
-        {
-            throw new IllegalArgumentException("Could not find Actor with imdbRef: " + imdbRef);
-        }
-
-        return actor.transferToDTO();
+        return readByRef(imdbRef).transferToDTO();
     }
 
     @Override
@@ -63,17 +42,38 @@ public class ActorServiceImpl implements ActorService
     }
 
     @Override
+    @Transactional
     public ActorDTO updateActor(int id, String firstName, String lastName, String imdbRef)
     {
-        if(isNull(firstName) && isNull(lastName) && isNull(imdbRef))
-            throw new IllegalArgumentException("Atleast one updatable field must be present");
-
-        return actorRepo.updateActor(id, firstName, lastName, imdbRef).transferToDTO();
+        return update(id, firstName, lastName, imdbRef).transferToDTO();
     }
 
     @Override
     public void deleteActor(int id)
     {
         actorRepo.deleteActor(id);
+    }
+
+
+    //--CONCRETE METHODS FOR ABSTRACT SIGNATURES----------------------------
+    @Override
+    public Actor getPersonByImdbRef(String imdbRef)
+    {
+        return actorRepo.findActorByRef(imdbRef);
+    }
+
+    @Override
+    public Actor getPersonById(int id)
+    {
+        return actorRepo.findActorById(id);
+    }
+
+    @Override
+    public Actor createPerson(String firstName, String lastName, String imdbRef)
+    {
+        final Actor actor = new Actor(firstName, lastName, imdbRef);
+        actorRepo.createActor(actor);
+
+        return actorRepo.findActorByRef(imdbRef);
     }
 }

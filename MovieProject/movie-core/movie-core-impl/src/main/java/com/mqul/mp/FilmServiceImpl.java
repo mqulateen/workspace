@@ -6,12 +6,15 @@ import com.mqul.mp.repository.FilmRepo;
 import com.mqul.mp.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static java.util.Objects.isNull;
+import static com.mqul.mp.PersonType.ACTOR;
+import static com.mqul.mp.PersonType.DIRECTOR;
+import static java.util.Objects.nonNull;
 
 @Service
 public class FilmServiceImpl implements FilmService
@@ -71,7 +74,9 @@ public class FilmServiceImpl implements FilmService
     @Override
     public FilmDTO createFilm(String filmName, int filmYear, String imdbRef, double imdbRating)
     {
-        if(Objects.nonNull(getFilmByImdbRef(imdbRef)))
+        //check if film already exists
+        final Film existingFilm = filmRepo.findFilmByRef(imdbRef);
+        if(nonNull(existingFilm))
         {
             final String errorMessage = String.format("Film with imdbRef [%s] already exists", imdbRef);
             throw new IllegalArgumentException(errorMessage);
@@ -80,136 +85,74 @@ public class FilmServiceImpl implements FilmService
         final Film film = new Film(filmName, filmYear, imdbRef, imdbRating);
         filmRepo.createFilm(film);
 
-        final FilmDTO filmDTO = filmRepo.findFilmById(film.getId()).transferToDTO();
-
-        return filmDTO;
+        return filmRepo.findFilmById(film.getId()).transferToDTO();
     }
 
     @Override
+    @Transactional
     public FilmDTO updateFilm(int id, String filmName, Integer filmYear, String imdbRef, Double imdbRating)
     {
-        if(isNull(filmName) && isNull(filmYear) && isNull(imdbRef) && isNull(imdbRating))
-            throw new IllegalArgumentException("Atleast one updatable field must be present");
+        final Film film = filmRepo.findFilmById(id);
 
-        return filmRepo.updateFilm(id, filmName, filmYear, imdbRef, imdbRating).transferToDTO();
-    }
+        if(Objects.equals(film.getFilmName(), filmName))
+            film.setFilmName(filmName);
 
-    @Override
-    public FilmDTO addActorToFilm(int filmId, int actorId)
-    {
-        final Film film = filmRepo.findFilmById(filmId);
-        final Actor actor = actorRepo.findActorById(actorId);
+        if(Utils.notEquals(film.getFilmYear(), filmYear))
+            film.setFilmYear(filmYear);
 
-        if(Objects.isNull(film))
-        {
-            throw new IllegalArgumentException("Could not find Film with with ID: " + filmId);
-        }
+        if(Utils.notEquals(film.getImdbRef(), imdbRef))
+            film.setImdbRef(imdbRef);
 
-        if(Objects.isNull(actor))
-        {
-            throw new IllegalArgumentException("Could not find Actor with with ID: " + actorId);
-        }
-
-        film.addActor(actor);
-
-        filmRepo.saveUpdate(film);
+        if(Utils.notEquals(film.getImdbRating(), imdbRating))
+            film.setImdbRating(imdbRating);
 
         return film.transferToDTO();
     }
 
     @Override
-    public FilmDTO addDirectorToFilm(int filmId, int directorId)
+    @Transactional
+    public FilmDTO addPersonToFilm(int filmId, int personId, PersonType type)
     {
         final Film film = filmRepo.findFilmById(filmId);
-        final Director director = directorRepo.findDirectorById(directorId);
 
-        if(Objects.isNull(film))
+        Objects.requireNonNull(film, "Could not find Film with with ID: " + filmId);
+
+        if(type == ACTOR)
         {
-            throw new IllegalArgumentException("Could not find Film with with ID: " + filmId);
+            final Actor actor = actorRepo.findActorById(personId);
+            Objects.requireNonNull(actor, "Could not find Actor with with ID: " + personId);
+            film.addActor(actor);
         }
-
-        if(Objects.isNull(director))
+        else if(type == DIRECTOR)
         {
-            throw new IllegalArgumentException("Could not find Director with with ID: " + directorId);
+            final Director director = directorRepo.findDirectorById(personId);
+            Objects.requireNonNull(director, "Could not find Director with with ID: " + personId);
+            film.addDirector(director);
         }
-
-        film.addDirector(director);
-
-        filmRepo.saveUpdate(film);
 
         return film.transferToDTO();
     }
 
     @Override
-    public FilmDTO addActorsToFilm(int filmId, List<Integer> actorIds)
-    {
-        return null;
-    }
-
-    @Override
-    public FilmDTO addDirectorsToFilm(int filmId, List<Integer> directorIds)
-    {
-        return null;
-    }
-
-    @Override
-    public FilmDTO removeActorFromFilm(int filmId, int actorId)
+    @Transactional
+    public FilmDTO removePersonFromFilm(int filmId, int personId, PersonType type)
     {
         final Film film = filmRepo.findFilmById(filmId);
-        final Actor actor = actorRepo.findActorById(actorId);
 
-        if(Objects.isNull(film))
+        Objects.requireNonNull(film, "Could not find Film with with ID: " + filmId);
+
+        if(type == ACTOR)
         {
-            throw new IllegalArgumentException("Could not find Film with with ID: " + filmId);
+            final Actor actor = actorRepo.findActorById(personId);
+            Objects.requireNonNull(actor, "Could not find Actor with with ID: " + personId);
+            film.removeActor(actor);
         }
-
-        if(Objects.isNull(actor))
+        else if(type == DIRECTOR)
         {
-            throw new IllegalArgumentException("Could not find Actor with with ID: " + actorId);
+            final Director director = directorRepo.findDirectorById(personId);
+            Objects.requireNonNull(director, "Could not find Director with with ID: " + personId);
+            film.removeDirector(director);
         }
-
-        final Actor filmsActor =
-                film.getActors().stream().filter(a -> a.getID() == actorId).findFirst().orElse(null);
-
-        if(filmsActor == null)
-        {
-            throw new IllegalArgumentException(String.format("Actor [%s] is not associated with Film [%s]", actorId, filmId));
-        }
-
-        film.removeActor(actor);
-
-        filmRepo.saveUpdate(film);
-
-        return film.transferToDTO();
-    }
-
-    @Override
-    public FilmDTO removeDirectorFromFilm(int filmId, int directorId)
-    {
-        final Film film = filmRepo.findFilmById(filmId);
-        final Director director = directorRepo.findDirectorById(directorId);
-
-        if(Objects.isNull(film))
-        {
-            throw new IllegalArgumentException("Could not find Film with with ID: " + filmId);
-        }
-
-        if(Objects.isNull(director))
-        {
-            throw new IllegalArgumentException("Could not find Director with with ID: " + directorId);
-        }
-
-        final Director filmsDirector =
-                film.getDirectors().stream().filter(d -> d.getID() == directorId).findFirst().orElse(null);
-
-        if(filmsDirector == null)
-        {
-            throw new IllegalArgumentException(String.format("Director [%s] is not associated with Film [%s]", directorId, filmId));
-        }
-
-        film.removeDirector(director);
-
-        filmRepo.saveUpdate(film);
 
         return film.transferToDTO();
     }

@@ -27,11 +27,6 @@ public class FilmRepo
         return entityManager.find(Film.class, id);
     }
 
-    public Film saveUpdate(Film film)
-    {
-        return entityManager.merge(film);
-    }
-
     public Film findFilmByRef(String filmImdbRef)
     {
         Query query = entityManager.createQuery("SELECT f FROM Film f WHERE f.imdbRef = :imdbRef");
@@ -60,11 +55,6 @@ public class FilmRepo
         persist(film);
     }
 
-    public void persist(Film film)
-    {
-        entityManager.persist(film);
-    }
-
     public void deleteFilm(int filmId)
     {
         Film film = findFilmById(filmId);
@@ -72,39 +62,13 @@ public class FilmRepo
         remove(film);
     }
 
+    private void persist(Film film)
+    {
+        entityManager.persist(film);
+    }
+
     private void remove(Film film)
     {
         entityManager.remove(film);
-    }
-
-    public Film updateFilm(int id, String filmName, Integer filmYear, String imdbRef, Double imdbRating)
-    {
-        QueryBuilder qb = new QueryBuilder("UPDATE Film f");
-
-        if(filmName != null)
-        {
-            qb.set("f.filmName", filmName);
-        }
-
-        if(filmYear != null)
-        {
-            qb.set("f.filmYear", filmYear);
-        }
-
-        if(imdbRef != null)
-        {
-            qb.set("f.imdbRef", imdbRef);
-        }
-
-        if(imdbRating != null)
-        {
-            qb.set("f.imdbRating", imdbRating);
-        }
-
-        qb.where("a.id", id);
-
-        entityManager.createQuery(qb.build()).executeUpdate();
-
-        return findFilmById(id);
     }
 }
