@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 import static com.mqul.mp.PersonType.ACTOR;
 import static com.mqul.mp.PersonType.DIRECTOR;
-import static java.util.Objects.nonNull;
 
 @Service
 public class FilmServiceImpl implements FilmService
@@ -47,10 +46,7 @@ public class FilmServiceImpl implements FilmService
     {
         final Film film = filmRepo.findFilmByRef(imdbRef);
 
-        if(Objects.isNull(film))
-        {
-            throw new IllegalArgumentException("Could not find film with imdbRef: " + imdbRef);
-        }
+        Objects.requireNonNull(film, "Could not find film with imdbRef: " + imdbRef);
 
         return film.transferToDTO();
     }
@@ -76,11 +72,8 @@ public class FilmServiceImpl implements FilmService
     {
         //check if film already exists
         final Film existingFilm = filmRepo.findFilmByRef(imdbRef);
-        if(nonNull(existingFilm))
-        {
-            final String errorMessage = String.format("Film with imdbRef [%s] already exists", imdbRef);
-            throw new IllegalArgumentException(errorMessage);
-        }
+
+        Objects.requireNonNull(existingFilm, String.format("Film with imdbRef [%s] already exists", imdbRef));
 
         final Film film = new Film(filmName, filmYear, imdbRef, imdbRating);
         filmRepo.createFilm(film);
@@ -97,13 +90,13 @@ public class FilmServiceImpl implements FilmService
         if(Objects.equals(film.getFilmName(), filmName))
             film.setFilmName(filmName);
 
-        if(Utils.notEquals(film.getFilmYear(), filmYear))
+        if(MovieUtils.notEquals(film.getFilmYear(), filmYear))
             film.setFilmYear(filmYear);
 
-        if(Utils.notEquals(film.getImdbRef(), imdbRef))
+        if(MovieUtils.notEquals(film.getImdbRef(), imdbRef))
             film.setImdbRef(imdbRef);
 
-        if(Utils.notEquals(film.getImdbRating(), imdbRating))
+        if(MovieUtils.notEquals(film.getImdbRating(), imdbRating))
             film.setImdbRating(imdbRating);
 
         return film.transferToDTO();

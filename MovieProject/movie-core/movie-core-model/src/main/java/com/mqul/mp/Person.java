@@ -20,11 +20,11 @@ public abstract class Person implements Serializable
         //
     }
 
-    public Person(String imdbRef, String firstNames, String lastName)
+    public Person(String firstNames, String lastName, String imdbRef)
     {
-        this.imdbRef = imdbRef;
         this.firstNames = firstNames;
         this.lastName = lastName;
+        this.imdbRef = imdbRef;
     }
 
     public String getFirstNames()

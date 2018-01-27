@@ -1,7 +1,6 @@
 import com.mqul.mp.*;
 import com.mqul.mp.repository.ActorRepo;
 import com.mqul.mp.repository.DirectorRepo;
-import com.mqul.mp.repository.PersonRepo;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -21,7 +20,6 @@ public class AsbtractEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(ActorEntityTest.class);
 
-    private static PersonRepo personRepo;
     private static ActorRepo actorRepo;
     private static DirectorRepo directorRepo;
 
@@ -32,7 +30,6 @@ public class AsbtractEntityTest {
     public static void init()
     {
         final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        personRepo = context.getBean(PersonRepo.class);
         actorRepo = context.getBean(ActorRepo.class);
         directorRepo = context.getBean(DirectorRepo.class);
     }
@@ -48,7 +45,7 @@ public class AsbtractEntityTest {
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed
-        List<Actor> actors = personRepo.getAll(PersonType.ACTOR);
+        List<Actor> actors = actorRepo.getAllActors();
 
         for(Actor actor : actors)
         {
@@ -71,7 +68,7 @@ public class AsbtractEntityTest {
         }
 
         //todo: this test and method (getAll()) will become in-efficient as the table grows, adjust as and when needed
-        List<Director> directors = personRepo.getAll(PersonType.DIRECTOR);
+        List<Director> directors = directorRepo.getAllDirectors();
 
         for(Director director : directors)
         {
@@ -90,9 +87,9 @@ public class AsbtractEntityTest {
         {
             try
             {
-                personRepo.removePerson(actorRepo.findActorByRef(ref).getID(), PersonType.ACTOR);
+                actorRepo.deleteActor(actorRepo.findActorByRef(ref).getID());
 
-                personRepo.removePerson(directorRepo.findDirectorByRef(ref).getID(), PersonType.DIRECTOR);
+                directorRepo.deleteDirector(directorRepo.findDirectorByRef(ref).getID());
             }
             catch (IllegalArgumentException ex)
             {

@@ -1,6 +1,5 @@
 package com.mqul.mp;
 
-
 import javax.persistence.Query;
 
 public class QueryBuilder {
@@ -35,21 +34,6 @@ public class QueryBuilder {
         return this;
     }
 
-    public QueryBuilder where(String l, int r)
-    {
-        if(firstWhere)
-        {
-            sb.append(String.format(" WHERE %s = %d", l, r));
-            firstWhere = false;
-        }
-        else
-        {
-            sb.append(String.format(" AND %s = %d", l, r));
-        }
-
-        return this;
-    }
-
     public QueryBuilder set(String l, String r)
     {
         if(firstSet)
@@ -60,21 +44,6 @@ public class QueryBuilder {
         else
         {
             sb.append(String.format(", %s = '%s'", l, r));
-        }
-
-        return this;
-    }
-
-    public QueryBuilder set(String l, Number r)
-    {
-        if(firstSet)
-        {
-            sb.append(String.format(" SET %s = %d", l, r));
-            firstSet = false;
-        }
-        else
-        {
-            sb.append(String.format(", %s = %d", l, r));
         }
 
         return this;

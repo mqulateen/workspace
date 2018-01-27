@@ -3,9 +3,9 @@ package com.mqul.mp;
 public class DirectorDTO
 {
     private int id;
-    private String imdbRef;
     private String firstNames;
     private String lastName;
+    private String imdbRef;
 
     public DirectorDTO()
     {

@@ -14,7 +14,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-@SuppressWarnings("unchecked")
 public class FilmRepo
 {
     private Logger log = LoggerFactory.getLogger(FilmRepo.class);

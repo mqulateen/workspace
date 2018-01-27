@@ -1,23 +1,18 @@
 package com.mqul.mp;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Fetch;
 import java.io.Serializable;
-import java.util.AbstractCollection;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 /**
  *
  * @author mqul
  *
- * film model mapping to film tbl
+ * film Entity mapping to film tbl
  */
-@Table(name = "films")
 @Entity
+@Table(name = "films")
 public class Film implements Serializable, TransferableObject<FilmDTO>
 {
     @Id
@@ -152,8 +147,8 @@ public class Film implements Serializable, TransferableObject<FilmDTO>
     public FilmDTO transferToDTO()
     {
         return new FilmDTO(id, filmName, imdbRef, imdbRating, filmYear,
-                            TransferableUtils.transferList(directors),
-                            TransferableUtils.transferList(actors));
+                            MovieUtils.transferList(directors),
+                            MovieUtils.transferList(actors));
     }
 
     @Override

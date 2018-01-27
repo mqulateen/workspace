@@ -1,10 +1,16 @@
 package com.mqul.mp.models;
 
+import javax.validation.constraints.Size;
+
 public class RequestFilm
 {
     private String filmName;
-    private String imdbRef;
     private double imdbRating;
+
+    @Size(max = 7)
+    private String imdbRef;
+
+    @Size(max = 4)
     private int filmYear;
 
     public String getFilmName() {

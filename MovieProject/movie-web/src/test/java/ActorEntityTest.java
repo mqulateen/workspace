@@ -1,6 +1,5 @@
 import com.mqul.mp.Actor;
 import com.mqul.mp.repository.ActorRepo;
-import com.mqul.mp.repository.PersonRepo;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -18,7 +17,6 @@ public class ActorEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(ActorEntityTest.class);
 
-    private static PersonRepo personRepo;
     private static ActorRepo actorRepo;
 
     private final static String REF = "999";
@@ -27,7 +25,6 @@ public class ActorEntityTest {
     public static void init()
     {
         final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        personRepo = context.getBean(PersonRepo.class);
         actorRepo = context.getBean(ActorRepo.class);
     }
 
@@ -57,10 +54,10 @@ public class ActorEntityTest {
         final int actorId = actorRepo.findActorByRef(REF).getID();
 
         log.info("removing test actor with the imdb ref {} and id {}", REF, actorId);
-        personRepo.removePerson(actorId, ACTOR);
+        actorRepo.deleteActor(actorId);
 
         log.info("attempt second removal of actor with imdb ref {} and id {}, should fail", REF, actorId);
-        personRepo.removePerson(actorId, ACTOR);
+        actorRepo.deleteActor(actorId);
     }
 
     @AfterClass
@@ -69,7 +66,7 @@ public class ActorEntityTest {
         try
         {
             final int actorId = actorRepo.findActorByRef(REF).getID();
-            personRepo.removePerson(actorId, ACTOR);
+            actorRepo.deleteActor(actorId);
         }
         catch (IllegalArgumentException e)
         {

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,7 +42,7 @@ public class ActorController
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
-    public ActorDTO createActor(@RequestBody RequestActor requestActor)
+    public ActorDTO createActor(@Valid @RequestBody RequestActor requestActor)
     {
         Objects.requireNonNull(requestActor, "Request body cannot be empty");
 
@@ -55,7 +56,8 @@ public class ActorController
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ActorDTO updateActor(@PathVariable( "id" ) int id, @RequestBody RequestActor requestActor)
+    public ActorDTO updateActor(@PathVariable( "id" ) int id,
+                                @Valid @RequestBody RequestActor requestActor)
     {
         Objects.requireNonNull(getActorById(id), "Could not find actor with ID: " + id);
         Objects.requireNonNull(requestActor, "Request body cannot be empty");

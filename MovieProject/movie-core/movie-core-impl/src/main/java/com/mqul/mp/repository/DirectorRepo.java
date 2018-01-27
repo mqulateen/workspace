@@ -1,7 +1,6 @@
 package com.mqul.mp.repository;
 
 import com.mqul.mp.Director;
-import com.mqul.mp.QueryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

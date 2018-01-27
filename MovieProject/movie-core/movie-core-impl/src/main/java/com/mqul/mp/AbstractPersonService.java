@@ -4,6 +4,10 @@ import java.util.Objects;
 
 public abstract class AbstractPersonService <T extends Person>
 {
+    protected abstract T getPersonByImdbRef(String imdbRef);
+    protected abstract T getPersonById(int id);
+    protected abstract T createPerson(String firstName, String lastName, String imdbRef);
+
     public T create(String firstName, String lastName, String imdbRef)
     {
         if(Objects.nonNull(getPersonByImdbRef(imdbRef)))
@@ -33,19 +37,15 @@ public abstract class AbstractPersonService <T extends Person>
 
         Objects.requireNonNull(person, "Couldn't not find Person with ID: " + id);
 
-        if(Utils.notEquals(person.getFirstNames(), firstName))
+        if(MovieUtils.notEquals(person.getFirstNames(), firstName))
             person.setFirstNames(firstName);
 
-        if(Utils.notEquals(person.getLastName(), lastName))
+        if(MovieUtils.notEquals(person.getLastName(), lastName))
             person.setLastName(lastName);
 
-        if(Utils.notEquals(person.getImdbRef(), imdbRef))
+        if(MovieUtils.notEquals(person.getImdbRef(), imdbRef))
             person.setImdbRef(imdbRef);
 
         return person;
     }
-
-    protected abstract T getPersonByImdbRef(String imdbRef);
-    protected abstract T getPersonById(int id);
-    protected abstract T createPerson(String firstName, String lastName, String imdbRef);
 }

@@ -1,6 +1,5 @@
 import com.mqul.mp.Director;
 import com.mqul.mp.repository.DirectorRepo;
-import com.mqul.mp.repository.PersonRepo;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -18,7 +17,6 @@ public class DirectorEntityTest {
 
     private static Logger log = LoggerFactory.getLogger(DirectorEntityTest.class);
 
-    private static PersonRepo personRepo;
     private static DirectorRepo directorRepo;
 
     private final static String REF = "999";
@@ -27,7 +25,6 @@ public class DirectorEntityTest {
     public static void init()
     {
         final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        personRepo = context.getBean(PersonRepo.class);
         directorRepo = context.getBean(DirectorRepo.class);
     }
 
@@ -57,10 +54,10 @@ public class DirectorEntityTest {
         final int directorId = directorRepo.findDirectorByRef(REF).getID();
 
         log.info("removing test director with the imdb ref {} and id {}", REF, directorId);
-        personRepo.removePerson(directorId, DIRECTOR);
+        directorRepo.deleteDirector(directorId);
 
         log.info("attempt second removal of actor with imdb ref {} and id {}, should fail", REF, directorId);
-        personRepo.removePerson(directorId, DIRECTOR);
+        directorRepo.deleteDirector(directorId);
     }
 
     @AfterClass
@@ -69,7 +66,7 @@ public class DirectorEntityTest {
         try
         {
             final int directorId = directorRepo.findDirectorByRef(REF).getID();
-            personRepo.removePerson(directorId, DIRECTOR);
+            directorRepo.deleteDirector(directorId);
         }
         catch (IllegalArgumentException e)
         {

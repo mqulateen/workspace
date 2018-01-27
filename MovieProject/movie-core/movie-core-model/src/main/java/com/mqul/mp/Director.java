@@ -2,8 +2,6 @@ package com.mqul.mp;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -26,9 +24,9 @@ public class Director extends Person implements Serializable, TransferableObject
         //
     }
 
-    public Director(String imdbRef, String firstNames, String lastName)
+    public Director(String firstNames, String lastName, String imdbRef)
     {
-        super(imdbRef, firstNames, lastName);
+        super(firstNames, lastName, imdbRef);
     }
 
     public int getID()

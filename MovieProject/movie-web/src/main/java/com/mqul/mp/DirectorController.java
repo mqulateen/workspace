@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,7 +42,7 @@ public class DirectorController {
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
-    public DirectorDTO createDirector(@RequestBody RequestDirector requestDirector)
+    public DirectorDTO createDirector(@Valid @RequestBody RequestDirector requestDirector)
     {
         Objects.requireNonNull(requestDirector, "Request body cannot be empty");
 
@@ -55,7 +56,8 @@ public class DirectorController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public DirectorDTO updateDirector(@PathVariable( "id" ) int id, @RequestBody RequestDirector requestDirector)
+    public DirectorDTO updateDirector(@PathVariable( "id" ) int id,
+                                      @Valid @RequestBody RequestDirector requestDirector)
     {
         Objects.requireNonNull(getDirectorById(id), "Could not find director with ID: " + id);
         Objects.requireNonNull(requestDirector, "Request body cannot be empty");
