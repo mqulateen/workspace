@@ -8,3 +8,6 @@
 #ignore from .idea dir
 MovieProject/.idea/*
 /.idea/
+
+#ignore mac specifc files
+*.DS_Store
