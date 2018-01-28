@@ -1,7 +1,11 @@
 package com.mqul.mp.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import javax.validation.constraints.Size;
 
+@JsonInclude(Include.NON_NULL)
 public class RequestFilm
 {
     private String filmName;

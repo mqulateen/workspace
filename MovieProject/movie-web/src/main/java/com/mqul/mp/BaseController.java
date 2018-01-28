@@ -11,7 +11,7 @@ public class BaseController
 {
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
-    public String getAllActors()
+    public String loadIndexHTML()
     {
         return html;
     }
@@ -56,7 +56,7 @@ public class BaseController
             "\n" +
             "\t\t\t<nav>\n" +
             "\t\t\t\t<ul>\n" +
-            "\t\t\t\t\t<li><a href=\"/\">Home</a></li>\n" +
+            "\t\t\t\t\t<li><a href=\"/swagger-ui.html\">Swagger</a></li>\n" +
             "\t\t\t\t\t<li><a href=\"/film\">Films</a></li>\n" +
             "\t\t\t\t\t<li><a href=\"/actor\">Actors</a></li>\n" +
             "\t\t\t\t\t<li><a href=\"/director\">Directors</a></li>\n" +
@@ -68,6 +68,7 @@ public class BaseController
             "\t\t\t\t<p>projectMovie, a simple API that allows users to manipulate Film/Actor/Director data - inspired by IMdB.</p>\n" +
             "\t\t\t\t<p>The main technologies being used here include Spring, JPA (Eclipselink), PostgreSQL, and of course Java 8 - with all its OOP glory.</p>\n" +
             "\t\t\t\t<p>Try out the GET endpoints by pressing the buttons above</p>\n" +
+            "\t\t\t\t<p>Pressing <strong>Swagger</strong> will take you to the API's endpoint documentation.</p>\n" +
             "\t\t\t</div>\n" +
             "\t\t\t\n" +
             "\t\t\t<footer>\n" +

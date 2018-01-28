@@ -110,14 +110,14 @@ public class FilmController
 
     @ResponseBody
     @RequestMapping(value = "/{id}/actor/{actorId}", method = RequestMethod.DELETE)
-    public FilmDTO removeActorToFilm(@PathVariable(name = "id") int id, @PathVariable(name = "actorId") int actorId)
+    public FilmDTO removeActorFromFilm(@PathVariable(name = "id") int id, @PathVariable(name = "actorId") int actorId)
     {
         return filmService.removePersonFromFilm(id, actorId, PersonType.ACTOR);
     }
 
     @ResponseBody
     @RequestMapping(value = "/{id}/director/{directorId}", method = RequestMethod.DELETE)
-    public FilmDTO removeDirectorToFilm(@PathVariable(name = "id") int id, @PathVariable(name = "directorId") int directorId)
+    public FilmDTO removeDirectorFromFilm(@PathVariable(name = "id") int id, @PathVariable(name = "directorId") int directorId)
     {
         return filmService.removePersonFromFilm(id, directorId, PersonType.DIRECTOR);
     }
