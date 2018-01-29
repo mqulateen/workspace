@@ -1,15 +1,9 @@
 
 
-
-This commit:
-- Improved/added unit tests
-- Better use of inheritance
-- Introduced JPA inheritance
-- Bug fixes found while writing tests
-- Added film endpoints
-
 TODO:
-- Further cleanup
-- Further test coverage
-- CRUD operations support at repo/rest level
-- web UI
+- Put DB config in a properties file
+- Fix tests and add more test coverage
+- Look at possibly seperating endpoints in controller (FilmController)
+- Implement additional funcationality:
+      * Searching for films by Actor/Director
+      * Searching for entities by value other than ID/Ref (i.e name, rating[film])
