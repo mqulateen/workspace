@@ -21,6 +21,8 @@ brew cask install java
 brew install maven
 #wildfly
 brew install wildfly-as
+#postgres
+brew install postgresql
 #intellijIDEA
 brew cask install intellij-idea-ce
 
